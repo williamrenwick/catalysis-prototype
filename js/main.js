@@ -198,7 +198,7 @@ $(".slideshowMenuItem").click(function(){
 		diff *= -1; 
 		leftDiff = "-=" + diff*100 + "%";
 		
-		currentEl.animate({ "left": leftDiff } , 1000 , function(){
+		currentEl.animate({ "left": leftDiff } , 400 , function(){
 				animStop = true;
 			});
 			
@@ -207,7 +207,7 @@ $(".slideshowMenuItem").click(function(){
 			currentEl = currentEl.next();
 			leftValue = (i+1)*100 + "%";
 			currentEl.css("left",leftValue)
-			currentEl.animate({ "left": leftDiff } , 1000 , function(){
+			currentEl.animate({ "left": leftDiff } , 400 , function(){
 				animStop = true;
 			});
 		}
@@ -217,7 +217,7 @@ $(".slideshowMenuItem").click(function(){
 	else if(diff>0){
 		leftDiff = "+=" + diff*100 + "%";
 		
-		currentEl.animate({ "left": leftDiff } , 1000 , function(){
+		currentEl.animate({ "left": leftDiff } , 400 , function(){
 				animStop = true;
 			});
 			
@@ -226,7 +226,7 @@ $(".slideshowMenuItem").click(function(){
 			currentEl = currentEl.prev();
 			leftValue = "-" + (i+1)*100 + "%";
 			currentEl.css("left",leftValue)
-			currentEl.animate({ "left": leftDiff } , 1000 , function(){
+			currentEl.animate({ "left": leftDiff } , 400 , function(){
 				animStop = true;
 			});
 		}

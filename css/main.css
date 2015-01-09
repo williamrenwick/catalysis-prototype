@@ -225,68 +225,68 @@ textarea {
   background-color: #B5B8B9;
 }
 .nav-list-full {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 180px;
-    height: 320px;
-    color: #ffffff;
-    margin-left: -90px;
-    margin-top: -160px;
-    text-align: center;
-    list-style: none;
-    font-size: 30px;
-    font-family: 'apercu';
-    font-weight: 200;
-    text-align: center;
-    line-height: 80px;
-  } 
-  .full-item {
-    position: relative;
-  } 
-  .full-item a {
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-  .full-item a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: 15px;
-    background-color: #ffffff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
-    -o-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }  
-  .full-item a,
-  .full-item a:visited {
-    text-decoration: none;
-    color: #ffffff;
-  }
-  .full-item.active a {
-    color: #000000;
-  }
-  .full-item.active a:before {
-    background-color: #000000;
-  }
-  .full-item a:hover:before,
-  .full-item.active a:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 320px;
+  color: #ffffff;
+  margin-left: -90px;
+  margin-top: -160px;
+  text-align: center;
+  list-style: none;
+  font-size: 30px;
+  font-family: 'apercu';
+  font-weight: 200;
+  text-align: center;
+  line-height: 80px;
+} 
+.full-item {
+  position: relative;
+} 
+.full-item a {
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.full-item a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 15px;
+  background-color: #ffffff;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}  
+.full-item a,
+.full-item a:visited {
+  text-decoration: none;
+  color: #ffffff;
+}
+.full-item.active a {
+  color: #000000;
+}
+.full-item.active a:before {
+  background-color: #000000;
+}
+.full-item a:hover:before,
+.full-item.active a:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
 
 /************************ HOMEPAGE SLIDER  *************************/
 
@@ -332,38 +332,34 @@ top:0;
 	background-color: #f2f2f2;
 	left:100%;
 }
-
+#arrowLeft,
+#arrowRight {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  margin-top: -20px;
+  cursor: pointer;
+}
 #arrowLeft {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	background-color: black;
-	top: 50%;
-	left: 20px;
-	margin-top: -20px;
+	left: 50px;
 	background: url('../img/arrow-l.svg') 0 0 transparent;
 }
 
 #arrowRight {
-	position: absolute;
 	float:right;
-	width: 40px;
-	height: 40px;
-	background-color: black;
-	top: 50%;
-	right: 20px;
-	margin-top: -20px;
+	right: 50px;
 	background: url('../img/arrow-r.svg') 0 0 transparent;
 }
 
-#slideshowMenu{
+#slideshowMenu {
 	position: absolute;
-	width: 106px;
+	width: 169px;
 	height: 30px;
 	left: 50%;
 	bottom: 50px;
-	margin-left: -53px;
-	}
+	margin-left: -84.5px;
+}
 
 .slideshowMenuItem{
 	width: 8px;
@@ -371,55 +367,86 @@ top:0;
 	position: relative;
 	border-radius: 25px;
 	float: left;
-	margin-right: 13px;
+	margin-right: 40px;
 	margin-top: 5px;
-	border: 2px solid #3524D3;
+	border: 2px solid #b5b8b9;
 	cursor: pointer;
 }
-
+.slideshowMenuItem:last-child {
+  margin-right: 0px;
+}
 .slideshowMenuItemSelected{
-	background-color: #3524D3 !important;
+	background-color: #b5b8b9 !important;
 }
-
-.landingBox{
-	width: 500px;
-	height: 400px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -250px;
-	margin-top: -200px;
-	text-align: center;
+.landingBox {
+  width: 403px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -201.5px;
+  margin-top: -200px;
+  text-align: center;
 }
-
-.landingTitle{
-	font-size: 50px;
-  font-family: "Circular Std";
+.landingTitle {
+  font-size: 62px;
+  font-family: "apercu";
   font-weight: 400;
-  color: #3524d3;
+  color: #B5B8B9;
+  letter-spacing: -1px;
 }
-
+.landingTitle span {
+  position: relative;
+  font-size: 32px;
+  vertical-align: super;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #b5b8b9;
+  cursor: pointer;
+}
+.hp-title-link:before {
+  position: absolute;
+  content:'';
+  right: -40px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  background-image: url(../img/more_arrow-01.svg);
+  background-repeat: no-repeat;
+  background-position: center;  
+}
 .landingText{
 	float: left;
 	position: relative;
   font-size: 18px;
   font-family: "Akkurat";
   font-weight: 400;
-  color:#3524d3;
+  color:#B5B8B9;
 }
-
 .landingButton{
 	padding: 10px 20px;
-	border: 2px solid #3524D3;
+	border: 2px solid #B5B8B9;
 	border-radius: 10px;
 	color: white;
 	top: 100px;
 	position: relative;
 	cursor: pointer;
-	color:#3524D3;
+	color:#B5B8B9;
 	font-family: 'Circular Std';
 }
-
+.landingBox.welcome {
+  width: 680px;
+  height: 400px;
+  margin-left: -340px;
+  margin-top: -200px;
+}
+.welcome .landingTitle {
+  font-size: 40px;
+  font-family: "apercu";
+  font-weight: 200;
+  color: #B5B8B9;
+  letter-spacing: -1px;
+}
 /************************ HOMEPAGE SLIDER  END *************************/
 
 /* ==========================================================================
@@ -432,96 +459,163 @@ top:0;
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+  .nav {
+    padding: 30px 30px;
+  }
   .nav-mobile {
     display:block;
+    right: 30px;
   }
   .nav-list {
     display:none;
   }
-  .nav-item {
-    float:left;
-    display:inline; 
-    width: 100%;
-    margin: 0 20px;
-    font-family: 'apercu';
-    font-weight: 400;
-    text-align: center;
-  }
-  #full-page-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #B5B8B9;
-  }
-  .nav-list-full {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    width: 180px;
-    height: 320px;
-    color: #ffffff;
-    margin-left: -90px;
-    margin-top: -160px;
-    text-align: center;
-    list-style: none;
-    font-size: 30px;
-    font-family: 'apercu';
-    font-weight: 200;
-    text-align: center;
-    line-height: 80px;
-  } 
-  .full-item {
-    position: relative;
-  } 
-  .full-item a {
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-  .full-item a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
+  /************************ HOMEPAGE SLIDER *************************/
+
+  .landingBox {
     left: 0;
-    bottom: 15px;
-    background-color: #ffffff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    -moz-transform: scaleX(0);
-    -o-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    -ms-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }  
-  .full-item a,
-  .full-item a:visited {
-    text-decoration: none;
-    color: #ffffff;
+    width: 100%;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: 0px;
+    padding: 0 150px;
+    box-sizing: border-box;
   }
-  .full-item.active a {
-    color: #000000;
+  .landingTitle {
+    font-size: 42px;
+    font-family: "apercu";
+    letter-spacing: 0px;
   }
-  .full-item.active a:before {
-    background-color: #000000;
+  .landingTitle span {
+    font-size: 32px;
+    vertical-align: super;
+    padding-bottom: 10px;
   }
-  .full-item a:hover:before,
-  .full-item.active a:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
+  .landingBox.welcome {
+    width: 100%;
+    height: 300px;
+    left: 0;
+    margin-left: 0px;
+    margin-top: -128px;
+    padding: 0 150px;
+    box-sizing: border-box;
+  }
+  .welcome .landingTitle {
+    font-size: 26px;
+    font-family: "apercu";
+    font-weight: 200;
+    color: #B5B8B9;
+    letter-spacing: 0px;
+  }
+  #slideshowMenu {
+    position: absolute;
+    width: 108px;
+    height: 30px;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -54px;
+  }
+  .slideshowMenuItem{
+    margin-right: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 568px) {
+  .nav {
+    padding: 30px 30px;
+  }
+  .nav-mobile {
+    display:block;
+    right: 30px;
+  }
+  .nav-list {
+    display:none;
+  }
+  /************************ HOMEPAGE SLIDER *************************/
+
+  #arrowLeft,
+  #arrowRight {
+    display: none;
+  }
+  .landingBox {
+    left: 0;
+    width: 100%;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: 0px;
+    padding: 0 60px;
+    box-sizing: border-box;
+    min-width: 320px;
+  }
+  .landingTitle {
+    font-size: 28px;
+    font-family: "apercu";
+    letter-spacing: 0px;
+  }
+  .landingTitle span {
+    font-size: 18px;
+    vertical-align: super;
+    padding-bottom: 10px;
+  }
+  .landingBox.welcome {
+    width: 100%;
+    height: 240px;
+    left: 0;
+    margin-left: 0px;
+    margin-top: -120px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    min-width: 320px;
+  }
+  .welcome .landingTitle {
+    font-size: 18px;
+    font-family: "apercu";
+    font-weight: 200;
+    color: #B5B8B9;
+    letter-spacing: 0px;
+  }
+  .hp-title-link:before {
+    right: -20px;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+  }
+  #slideshowMenu {
+    position: absolute;
+    width: 108px;
+    height: 30px;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -54px;
+  }
+  .slideshowMenuItem{
+    margin-right: 20px;
+    margin-top: 5px;
+    cursor: pointer;
   }
 
 }
-
+@media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
+  .landingBox.welcome {
+    height: 120px;
+    margin-top: -60px;
+    padding: 0 50px;
+  }
+  .landingBox {
+    left: 0;
+    width: 100%;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: 0px;
+    padding: 0 120px;
+  }
+  .nav-list-full {
+    height: 244px;
+    margin-top: -122px;
+    line-height: 60px;
+  } 
+}
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
