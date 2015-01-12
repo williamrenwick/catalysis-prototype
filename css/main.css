@@ -311,7 +311,6 @@ body.our-work {
 }
 #mainwrapper {
   padding-top: 81px;
-  position: relative;
 }
 .section-wrapper {
   width: 100%;
@@ -411,12 +410,12 @@ body.our-work {
 }
 .landingBox {
   width: 403px;
-  height: 400px;
+  height: 340px;
   position: absolute;
   left: 50%;
   top: 50%;
   margin-left: -201.5px;
-  margin-top: -200px;
+  margin-top: -170px;
   text-align: center;
 }
 .landingTitle {
