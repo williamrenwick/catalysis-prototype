@@ -76,8 +76,12 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body.our-work {
+  background-color: #FAFBFC;
+}
+
 .nav {
-  position:relative;
+  position: fixed;
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
@@ -86,6 +90,23 @@ textarea {
   background-color: transparent;
   padding: 30px 50px;
   z-index: 15;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out 0s;
+  -moz-transition: -moz-transform 0.3s ease-in-out 0s;
+  -o-transition: -o-transform 0.3s ease-in-out 0s;
+  -ms-transition: -ms-transform 0.3s ease-in-out 0s;
+  transition: transform 0.3s ease-in-out 0s;
+}
+.nav.nav-up {
+  -webkit-transform: translateY(-81px);
+  -moz-transform: translateY(-81px);
+  -o-transform: translateY(-81px);
+  -ms-transform: translateY(-81px);
+  transform: translateY(-81px);
 }
 .nav-logo {
   float: left;
@@ -116,6 +137,7 @@ textarea {
   position: relative;
   color: #B5B8B9;
   text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   -o-transition: all 0.3s ease-in-out 0s;
   -ms-transition: all 0.3s ease-in-out 0s;
@@ -287,16 +309,25 @@ textarea {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+#mainwrapper {
+  padding-top: 81px;
+  position: relative;
+}
+.section-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
 /************************ HOMEPAGE SLIDER  *************************/
 
 #slideShowWrapper{
 	width: 100%;
-height: 100%;
-overflow: hidden;
-max-width: 100%;
-position: absolute;
-top:0;
+  height: 100%;
+  overflow: hidden;
+  max-width: 100%;
+  position: absolute;
+  top:0;
 }
 
 #slideShow{
@@ -435,13 +466,13 @@ top:0;
 	font-family: 'Circular Std';
 }
 .landingBox.welcome {
-  width: 680px;
-  height: 400px;
-  margin-left: -340px;
-  margin-top: -200px;
+  width: 580px;
+  height: 350px;
+  margin-left: -290px;
+  margin-top: -175px;
 }
 .welcome .landingTitle {
-  font-size: 40px;
+  font-size: 36px;
   font-family: "apercu";
   font-weight: 200;
   color: #B5B8B9;
@@ -453,7 +484,7 @@ top:0;
 
 #cs-page-header {
   position: relative;
-  padding-top: 50px;
+  margin-top: 100px;
   padding-left: 50px;
   box-sizing: border-box;
 }
@@ -465,6 +496,7 @@ top:0;
   color: #000000;
 }
 .page-header p {
+  margin-top: 30px;
   font-size: 16px;
   font-family: "apercu";
   font-weight: 200;
@@ -478,16 +510,60 @@ top:0;
   box-sizing: border-box;
 }
 .cs-thumbnail {
+  position: relative;
   float: left;
   background-color: #B5B8B9; 
   box-sizing: border-box;
+  cursor: pointer;
 }
 .cs-thumbnail h1 {
-  font-size: 26px;
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  font-size: 28px;
   font-family: "apercu";
   font-weight: 400;
   color: #ffffff;
   text-align: center;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.thumb-btn {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 143px;
+  margin-left: -71.5px;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  font-size: 16px;
+  font-family: "apercu";
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.cs-thumbnail:hover .thumb-btn {
+  -webkit-transform: translateY(-40px);
+  -moz-transform: translateY(-40px);
+  -o-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  transform: translateY(-40px);
+}
+.cs-thumbnail:hover h1 {
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  transform: translateY(50px);
 }
 /* ==========================================================================
    Media Queries
@@ -498,6 +574,13 @@ top:0;
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
     width: 33.3%;
+    padding-left: 50px;
+  }
+  #cs-work-thumbs {
+    position: relative;
+    width: 100%;
+    padding: 60px 50px 100px 50px;
+    box-sizing: border-box;
   }
   .cs-thumbnail {
     width: 31.33%;
@@ -514,6 +597,13 @@ top:0;
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
     width: 40%;
+    padding-left: 50px;
+  }
+  #cs-work-thumbs {
+    position: relative;
+    width: 100%;
+    padding: 60px 50px 100px 50px;
+    box-sizing: border-box;
   }
   .cs-thumbnail {
     width: 47%;
@@ -539,12 +629,11 @@ top:0;
   /************************ HOMEPAGE SLIDER *************************/
 
   .landingBox {
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 300px;
     height: 200px;
     margin-top: -100px;
-    margin-left: 0px;
-    padding: 0 150px;
+    margin-left: -150px;
     box-sizing: border-box;
   }
   .landingTitle {
@@ -558,16 +647,15 @@ top:0;
     padding-bottom: 10px;
   }
   .landingBox.welcome {
-    width: 100%;
-    height: 300px;
-    left: 0;
-    margin-left: 0px;
-    margin-top: -128px;
-    padding: 0 150px;
+    width: 370px;
+    height: 210px;
+    left: 50%;
+    margin-left: -185px;
+    margin-top: -105px;
     box-sizing: border-box;
   }
   .welcome .landingTitle {
-    font-size: 26px;
+    font-size: 21px;
     font-family: "apercu";
     font-weight: 200;
     color: #B5B8B9;
@@ -589,6 +677,10 @@ top:0;
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
     width: 60%;
+    padding-left: 30px;
+  }
+  #cs-work-thumbs {
+    padding: 60px 30px 100px 30px;
   }
   .cs-thumbnail {
     width: 47%;
@@ -676,7 +768,11 @@ top:0;
   /************************ CASE STUDIES START  *************************/
    #cs-page-header {
     width: 100%;
-    padding-right: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  #cs-work-thumbs {
+    padding: 60px 30px 100px 30px;
   }
   .cs-thumbnail {
     width: 100%;
