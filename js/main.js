@@ -40,6 +40,8 @@ $(function(){
 	        // Scroll Up
 	        if(st + $(window).height() < $(document).height()) {
 	            $nav.removeClass('nav-up').addClass('nav-down');
+	            if(st < 80)
+	            	$nav.css({'background-color': 'transparent'});
 	        }
 	    }
 	    
@@ -282,6 +284,20 @@ $(".slideshowMenuItem").click(function(){
 	currentEl.addClass("currentSlide");
 	
 	selectedButton.removeClass("slideshowMenuItemSelected");
-	$(this).addClass("slideshowMenuItemSelected");
-	
+	$(this).addClass("slideshowMenuItemSelected");	
 });
+
+/*
+Case Studies
+*/
+
+$(function(){
+	var $filterBody = $('#filter-body'),
+		$filterSelector = $('#filter-selector');
+
+	$filterSelector.on('click', function() {
+		$filterBody.toggleClass('active');
+	});
+
+});
+

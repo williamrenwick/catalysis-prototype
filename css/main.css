@@ -502,6 +502,93 @@ body.our-work {
   color: #B5B8B9;
   line-height: 28px;
 }
+#cs-filter-text {
+  position: relative;
+  padding: 0 50px 0 50px;
+  box-sizing: border-box;
+}
+#cs-filter-text h5 {
+  font-size: 22px;
+  font-family: "apercu";
+  font-weight: 200;
+  margin-top: 60px;
+  margin-bottom: 0;
+  color: #B5B8B9;  
+  text-align: right;
+}
+#filter-selector {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  margin-right: 30px;
+  cursor: pointer;
+}
+#filter-selector:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  background: url(../img/dd_arrow.svg) no-repeat 50% 50%;
+}
+#filter-body {
+  width: 100%;
+  height: 0;
+  margin-top: 20px;
+  background-color: #000000;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+#filter-by {
+  margin-left: 50px;
+}
+#filter-body.active {
+  height: 200px;
+}
+#filter-by h5,
+#filter-by h4 {
+  font-family: "apercu";
+  font-weight: 200;
+}
+#filter-by h5 {
+  color: #ffffff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+#filter-by h4 {
+  color: #B5B8B9;
+  font-size: 16px;
+}
+.filter-by-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+#filter-by h4.active,
+.services-item h4.active {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+.services-list {
+  min-width: 10000px;
+}
+.services-item {
+  display: inline-block;
+  margin-right: 100px;
+}
+.services-item:first-child {
+  margin-left: 50px;
+}
+.services-item h4 {
+  font-family: "apercu";
+  font-weight: 400;
+  font-size: 16px;
+  color: #B5B8B9;
+}
 #cs-work-thumbs {
   position: relative;
   width: 100%;
@@ -582,12 +669,12 @@ body.our-work {
     box-sizing: border-box;
   }
   .cs-thumbnail {
-    width: 31.33%;
-    height: 300px;
-    margin-right: 3%;
-    margin-bottom: 50px;
+    width: 47%;
+    height: 360px;
+    margin-right: 6%;
+    margin-bottom: 120px;
   }
-  .cs-thumbnail:nth-child(3n+0) {
+  .cs-thumbnail:nth-child(2n+0) {
     margin-right: 0;
   }
 }
@@ -608,7 +695,7 @@ body.our-work {
     width: 47%;
     height: 300px;
     margin-right: 6%;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
   }
   .cs-thumbnail:nth-child(2n+0) {
     margin-right: 0;
@@ -685,7 +772,7 @@ body.our-work {
     width: 47%;
     height: 200px;
     margin-right: 6%;
-    margin-bottom: 50px;
+    margin-bottom: 90px;
   }
   .cs-thumbnail:nth-child(2n+0) {
     margin-right: 0;
