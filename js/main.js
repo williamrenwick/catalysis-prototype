@@ -1,9 +1,10 @@
-$(function(){
 
-	//Show and Hide Nav on Scroll
+$(function() {
+	/////////////////////////////////////////////SCROLL EVENTS//////////////////////////////////////////
 
 	// Hide Header on on scroll down
 	var didScroll;
+	var scrollHasRun = false;
 	var lastScrollTop = 0;
 	var delta = 5;
 	var navbarHeight = $('.nav').outerHeight();
@@ -15,9 +16,29 @@ $(function(){
 	setInterval(function() {
 	    if (didScroll) {
 	        hasScrolled();
-	        didScroll = false;
+			scrollToObj($('#cs-filter-text'), 'scroll');
+	        didScroll = false;       
 	    }
-	}, 250);
+	}, 50);
+
+	function scrollToObj(obj, input) {
+		var st = $(this).scrollTop(),
+			$filtertext = obj,
+			$scrollPast = $('#scroll-indicator').offset().top;
+
+		if (st > $scrollPast && scrollHasRun == false && input == 'scroll') {
+
+			$('html, body').animate({
+				scrollTop: $filtertext.offset().top
+			}, 300);
+
+			setTimeout(function() { scrollHasRun = true }, 100)
+		} else if (input == 'click') {
+			$('html, body').animate({
+				scrollTop: $filtertext.offset().top
+			}, 300);
+		}
+	};
 
 	function hasScrolled() {
 	    var st = $(this).scrollTop(),
@@ -131,172 +152,148 @@ $(function(){
 			}
 		}
 	};
-
-
-	function debounce(func, wait, immediate) {
-		var timeout;
-		return function() {
-			var context = this, args = arguments;
-			var later = function() {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			var callNow = immediate && !timeout;
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
-		};
-	};
-	var resizeFn = debounce(function() {
-		menuObj.hideFullMenu();
-	}, 100);
-
-	window.addEventListener('resize', resizeFn);
-
-	createHamburger();
-	menuObj.events();
-});
-
-
-/*
-SLIDESHOW CONTROL
-*/
-var animStop = true;
-
-$("#arrowRight").click(function(){
 	
-	if(animStop){
+
+	/*
+	SLIDESHOW CONTROL
+	*/
+	var animStop = true;
+
+	$("#arrowRight").click(function(){
 		
-	animStop = false;
-
-	var currentSlide   = $(".currentSlide"),
-		nextSlide	   = currentSlide.next('.slide'),
-		selectedButton = $(".slideshowMenuItemSelected"),
-		nextButton	   = selectedButton.next('.slideshowMenuItem');
-		
-	if(nextSlide.length==0)	
-	{
-		nextSlide = $('.slide').first();
-		nextButton = $('.slideshowMenuItem').first();
-	}
-	
-	currentSlide.animate({ "left": "-100%" } );
-	nextSlide.css("left","100%")
-	
-	
-	nextSlide.animate({ "left": "0%" } ,function(){
-		animStop = true;
-	});
-	
-	currentSlide.removeClass("currentSlide");
-	nextSlide.addClass("currentSlide");
-	
-	selectedButton.removeClass("slideshowMenuItemSelected");
-	nextButton.addClass("slideshowMenuItemSelected");
-	
-	
-	}
-
-});
-
-$("#arrowLeft").click(function(){
-	
-	if(animStop){
-	
-	animStop = false;
-
-	var currentSlide   = $(".currentSlide"),
-		prevSlide	   = currentSlide.prev('.slide'),
-		selectedButton = $(".slideshowMenuItemSelected"),
-		prevButton	   = selectedButton.prev('.slideshowMenuItem');
-		
-	if(prevSlide.length==0)	
-	{
-		prevSlide = $('.slide').last();
-		prevButton = $('.slideshowMenuItem').last();
-	}
-	
-	currentSlide.animate({ "left": "100%" } );
-	prevSlide.css("left","-100%")
-	prevSlide.animate({ "left": "0%" } ,function(){
-		animStop = true;
-	});
-	
-	currentSlide.removeClass("currentSlide");
-	prevSlide.addClass("currentSlide");
-	
-	selectedButton.removeClass("slideshowMenuItemSelected");
-	prevButton.addClass("slideshowMenuItemSelected");
-	
-	}
-});
-
-var test
-
-$(".slideshowMenuItem").click(function(){
-	var currentSlideN  = $(".currentSlide").index(),
-		clickedSlideN  = $(this).index();
-	var selectedButton = $(".slideshowMenuItemSelected");
-	var currentEl	   = $(".currentSlide");
-	currentEl.removeClass("currentSlide");
-	
-	var diff = currentSlideN - clickedSlideN;
-	
-	if(diff<0){
-		diff *= -1; 
-		leftDiff = "-=" + diff*100 + "%";
-		
-		currentEl.animate({ "left": leftDiff } , 400 , function(){
-				animStop = true;
-			});
+		if(animStop){
 			
-		for(i=0;i<diff;i++)
+		animStop = false;
+
+		var currentSlide   = $(".currentSlide"),
+			nextSlide	   = currentSlide.next('.slide'),
+			selectedButton = $(".slideshowMenuItemSelected"),
+			nextButton	   = selectedButton.next('.slideshowMenuItem');
+			
+		if(nextSlide.length==0)	
 		{
-			currentEl = currentEl.next();
-			leftValue = (i+1)*100 + "%";
-			currentEl.css("left",leftValue)
-			currentEl.animate({ "left": leftDiff } , 400 , function(){
-				animStop = true;
-			});
+			nextSlide = $('.slide').first();
+			nextButton = $('.slideshowMenuItem').first();
 		}
-			
-	}
-	
-	else if(diff>0){
-		leftDiff = "+=" + diff*100 + "%";
 		
-		currentEl.animate({ "left": leftDiff } , 400 , function(){
-				animStop = true;
-			});
-			
-		for(i=0;i<diff;i++)
-		{
-			currentEl = currentEl.prev();
-			leftValue = "-" + (i+1)*100 + "%";
-			currentEl.css("left",leftValue)
-			currentEl.animate({ "left": leftDiff } , 400 , function(){
-				animStop = true;
-			});
+		currentSlide.animate({ "left": "-100%" } );
+		nextSlide.css("left","100%")
+		
+		
+		nextSlide.animate({ "left": "0%" } ,function(){
+			animStop = true;
+		});
+		
+		currentSlide.removeClass("currentSlide");
+		nextSlide.addClass("currentSlide");
+		
+		selectedButton.removeClass("slideshowMenuItemSelected");
+		nextButton.addClass("slideshowMenuItemSelected");
+		
+		
 		}
+
+	});
+
+	$("#arrowLeft").click(function(){
+		
+		if(animStop){
+		
+		animStop = false;
+
+		var currentSlide   = $(".currentSlide"),
+			prevSlide	   = currentSlide.prev('.slide'),
+			selectedButton = $(".slideshowMenuItemSelected"),
+			prevButton	   = selectedButton.prev('.slideshowMenuItem');
 			
-	}
-	
-	currentEl.addClass("currentSlide");
-	
-	selectedButton.removeClass("slideshowMenuItemSelected");
-	$(this).addClass("slideshowMenuItemSelected");	
-});
+		if(prevSlide.length==0)	
+		{
+			prevSlide = $('.slide').last();
+			prevButton = $('.slideshowMenuItem').last();
+		}
+		
+		currentSlide.animate({ "left": "100%" } );
+		prevSlide.css("left","-100%")
+		prevSlide.animate({ "left": "0%" } ,function(){
+			animStop = true;
+		});
+		
+		currentSlide.removeClass("currentSlide");
+		prevSlide.addClass("currentSlide");
+		
+		selectedButton.removeClass("slideshowMenuItemSelected");
+		prevButton.addClass("slideshowMenuItemSelected");
+		
+		}
+	});
 
-/*
-Case Studies
-*/
+	var test
 
-$(function(){
+	$(".slideshowMenuItem").click(function(){
+		var currentSlideN  = $(".currentSlide").index(),
+			clickedSlideN  = $(this).index();
+		var selectedButton = $(".slideshowMenuItemSelected");
+		var currentEl	   = $(".currentSlide");
+		currentEl.removeClass("currentSlide");
+		
+		var diff = currentSlideN - clickedSlideN;
+		
+		if(diff<0){
+			diff *= -1; 
+			leftDiff = "-=" + diff*100 + "%";
+			
+			currentEl.animate({ "left": leftDiff } , 400 , function(){
+					animStop = true;
+				});
+				
+			for(i=0;i<diff;i++)
+			{
+				currentEl = currentEl.next();
+				leftValue = (i+1)*100 + "%";
+				currentEl.css("left",leftValue)
+				currentEl.animate({ "left": leftDiff } , 400 , function(){
+					animStop = true;
+				});
+			}
+				
+		}
+		
+		else if(diff>0){
+			leftDiff = "+=" + diff*100 + "%";
+			
+			currentEl.animate({ "left": leftDiff } , 400 , function(){
+					animStop = true;
+				});
+				
+			for(i=0;i<diff;i++)
+			{
+				currentEl = currentEl.prev();
+				leftValue = "-" + (i+1)*100 + "%";
+				currentEl.css("left",leftValue)
+				currentEl.animate({ "left": leftDiff } , 400 , function(){
+					animStop = true;
+				});
+			}
+				
+		}
+		
+		currentEl.addClass("currentSlide");
+		
+		selectedButton.removeClass("slideshowMenuItemSelected");
+		$(this).addClass("slideshowMenuItemSelected");	
+	});
+
+	/**************************************************************************
+	Case Studies
+	***************************************************************************/
+
 	var $filterBody = $('#filter-body'),
 		$filterToggle = $('#filter-toggle'),
-		$viewBy = $('.filter-by-item');
+		$viewBy = $('.filter-by-item'),
+		$intro = $('#intro-wrap');
 
 	$filterToggle.on('click', function() {
+		scrollToObj($('#cs-filter-text'), 'click');
 		$filterBody.toggleClass('active');
 	});
 
@@ -326,25 +323,13 @@ $(function(){
 			break;
 		}
 		pushText();
-	})
+	});
 
 	//click level 2 filter 
 	$('.filter-item').on('click', function() {
 		filterSelector(this, 'lvl2');
 		pushText();
-	})
-
-	function initScroll(item) {
-		if (typeof item === 'string') {
-			var $item = $(item);
-
-			$item.perfectScrollbar();
-		} else if (typeof item === 'object') {
-
-			item.perfectScrollbar();
-		}
-		
-	}
+	});
 
 	function moveFade(action) {
 		var $filterBy = $('#filter-by'),
@@ -355,7 +340,7 @@ $(function(){
 		} else if (action == 'refine' && hasClass == 'first-state') {
 			$filterBy.removeClass('first-state');
 		}
-	}
+	};
 
 
 	function filterSelector(obj, level) {
@@ -395,8 +380,7 @@ $(function(){
 			//add class active to clicked level 1 filter
 			item.addClass('active');
 		}	
-
-	}
+	};
 
 	function pushText() {
 		var activeListID = $('.active-list').attr('id'),
@@ -415,5 +399,89 @@ $(function(){
 			$filterToggle.text('all' + ' ' + activeListID)
 		}
 	}
-});
 
+	function fullHeightWidth(item) {
+		var windowW = $(window).width(),
+			windowH = $(window).height(),
+			menuHeight = 81;
+
+		if (typeof item === 'object'){
+			item.css({
+				width: windowW,
+				height: windowH - menuHeight
+			});
+		} else {
+			return
+		}
+	}
+
+	function imageHover() {
+		var $workItem = $('.work-item');
+
+		$workItem.on({
+			mouseenter: function() {
+				var $this = $(this),
+					$img = $this.find('img'),
+					src = $img.attr('src'),
+					slice = src.slice(0, -7),
+					finalSlice = slice + '.png';
+
+				$this.addClass('active');
+				$this.find('img').attr('src', finalSlice);
+			},
+			mouseleave: function() {
+				var $this = $(this),
+					$img = $this.find('img'),
+					src = $img.attr('src'),
+					slice = src.slice(0, -4),
+					finalSlice = slice + '_bw.png';
+
+				$this.removeClass('active');
+				$this.find('img').attr('src', finalSlice);
+			}
+		})
+
+	}
+
+	//////////// INITIALISE FUNCTIONS ////////////
+
+	function init(){
+		var bodyClass = $('body').attr('class');
+
+		createHamburger();
+		menuObj.events();
+
+		if (bodyClass == 'our-work') {
+			csIndexInit();
+			imageHover();
+		}
+	};
+
+
+	function csIndexInit() {
+		fullHeightWidth($intro);
+	};
+
+	init();
+	//resize functions
+	function debounce(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	};
+	var resizeFn = debounce(function() {
+		menuObj.hideFullMenu();
+		fullHeightWidth($intro);
+	}, 100);
+
+	window.addEventListener('resize', resizeFn);
+});
