@@ -604,7 +604,6 @@ body.our-work {
 #filter-toggle {
   color: #ffffff;
   border-bottom: 2px solid #ffffff;
-  margin-right: 30px;
   cursor: pointer;
   text-transform: lowercase;
 }
@@ -612,7 +611,7 @@ body.our-work {
   content: '';
   position: absolute;
   top: 50%;
-  right: 0px;
+  right: -30px;
   width: 20px;
   height: 20px;
   margin-top: -10px;
@@ -957,17 +956,19 @@ footer {
 
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
-    width: 41%%;
+    width: 41%;
     padding-left: 50px;
   }
 } 
 
-@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+@media only screen and (min-width: 1025px) and (max-width: 1600px) {
 
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
     width: 41%;
     padding-left: 50px;
+    top: 20%;
+    left: 26%;
   }
   .work-text h2{
     font-size: 36px;
@@ -979,15 +980,42 @@ footer {
     left: 80px;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
 
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
-    width: 41%;
+    width: 60%;
     padding-left: 50px;
+    top: 26%;
+    left: 22%;
+  }
+  .page-header h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .page-header h1:before {
+    bottom: 6px;
+    left: -40px;
+    width: 30px;
+    height: 3px;
+  }
+  .page-header p {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #scroll-indicator {
+    width: 26px;
+    height: 44px;
+    margin-top: 40px;
+  }
+  #scroll-indicator h5 {
+    width: 300px;
+    font-size: 14px;
   }
   .work-text {
-      height: 50%;
+      height: 60%;
+      padding: 0 35% 0 15%;
   }
   .work-text h2{
     font-size: 30px;
@@ -999,7 +1027,7 @@ footer {
     left: 50px;
   }
 }
-@media only screen and (min-width: 568px) and (max-width: 768px) {
+@media only screen and (min-width: 569px) and (max-width: 768px) {
   .nav {
     padding: 30px 30px;
   }
@@ -1061,7 +1089,46 @@ footer {
   /************************ CASE STUDIES START  *************************/
   #cs-page-header {
     width: 60%;
-    padding-left: 30px;
+    padding-left: 30px;    
+    top: 26%;
+    left: 22%;
+  }
+  .page-header h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .page-header h1:before {
+    bottom: 6px;
+    left: -40px;
+    width: 30px;
+    height: 3px;
+  }
+  .page-header p {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #scroll-indicator {
+    width: 26px;
+    height: 44px;
+    margin-top: 40px;
+  }
+  #scroll-indicator h5 {
+    width: 300px;
+    font-size: 14px;
+  }
+  .work-text {
+      height: 70%;
+      padding: 0 20% 0 15%;
+  }
+  .work-text h2{
+    font-size: 30px;
+  }
+  .work-text h4 {
+    font-size: 13px;
+  }
+  .to-top {
+    left: 36px;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) {
@@ -1139,9 +1206,72 @@ footer {
   }
   /************************ CASE STUDIES START  *************************/
    #cs-page-header {
+    position: relative;
     width: 100%;
     padding-right: 30px;
     padding-left: 30px;
+    padding-top: 40px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .page-header h1 {
+    font-size: 40px;
+    line-height: 40px;
+    padding-left: 24px;
+  }
+  .page-header h1:before {
+    bottom: 6px;
+    left: 0px;
+    width: 20px;
+    height: 3px;
+  }
+  .page-header p {
+    display: none;
+    /* margin-top: 30px;
+    font-size: 14px;
+    line-height: 28px;*/
+  }
+  #scroll-indicator {
+    width: 26px;
+    height: 44px;
+    margin-top: 80px;
+  }
+  #scroll-indicator h5 {
+    width: 300px;
+    font-size: 14px;
+  }
+  #cs-filter-text {
+    bottom: 20px;
+    padding: 0 50px 0 0px;
+  }
+  #cs-filter-text h5 {
+    position: relative;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #B5B8B9;  
+    text-align: right;
+  }
+  #filter-toggle:before {
+    right: -30px;
+  }
+  .work-text {
+      height: 70%;
+      padding: 0 20% 0 6%;
+  }
+  .work-text h2{
+    font-size: 18px;
+  }
+  .work-text h4,
+  .view-proj,
+  .work-item.active .to-top,
+   {
+    display: none;
+  }
+  .work-item.active .to-top {
+    display: none;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
