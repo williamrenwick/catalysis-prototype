@@ -420,41 +420,31 @@ $(function() {
 			var self = this,
 				$workItem = $('.work-item'),
 				$top = $('.to-top'),
-				bwCheck = '_bw',
 				scrollRunning;
 				
 
 			$workItem.on({
 				mouseenter: function() {
-					var $this = $(this),
-						$img = $this.find('img'),
-						src = $img.attr('src'),
-						slice = src.slice(0, -7),
-						finalSlice = slice + '.png';
 
 					if (!scrollRunning) {
-						$this.addClass('active').find('img').attr('src', finalSlice);
+						imgChange.colorImg(this);	
 					}
 				},
 				mouseleave: function() {
-					var $this = $(this),
-						$img = $this.find('img'),
-						src = $img.attr('src'),
-						slice = src.slice(0, -4),
-						finalSlice = slice + '_bw.png';
 
-					if (!scrollRunning && src.indexOf(bwCheck) == -1)	{
-						$this.removeClass('active').find('img').attr('src', finalSlice);
+					if (!scrollRunning)	{
+						imgChange.bwImg(this);
 					}
 				}
 			});	
 			$top.on({
 				click:function() {
 					var $this = $(this),
-					scrollTime = 300;
+					scrollTime = 400;
+
+					imgChange.bwImg('.work-item.active');
 
 					scrollRunning = true;
-
 					scrollToObj($('#cs-filter-text'), 'click');
 
 					setTimeout(function() {
@@ -462,8 +452,30 @@ $(function() {
 					}, scrollTime);
 				}
 			})
-		},
+		}
 	}
+	var imgChange = {
+		colorImg: function(obj) {
+			var $this = $(obj),
+				$img = $this.find('img'),
+				src = $img.attr('src'),
+				slice = src.slice(0, -7),
+				finalSlice = slice + '.png';
+
+			$this.addClass('active').find('img').attr('src', finalSlice);
+		},
+		bwImg: function(obj) {
+			var $this = $(obj),
+				$img = $this.find('img'),
+				src = $img.attr('src'),
+				slice = src.slice(0, -4),
+				finalSlice = slice + '_bw.png';
+
+			if (src.indexOf('_bw') == -1)
+				$this.removeClass('active').find('img').attr('src', finalSlice);
+		}
+	}
+
 
 
 	//////////// INITIALISE FUNCTIONS ////////////
