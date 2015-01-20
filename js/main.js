@@ -21,7 +21,7 @@ $(function() {
 	    }
 	}, 50);
 
-	function scrollToObj(obj, input) {
+	function scrollToObj(obj, input, callback) {
 		var st = $(this).scrollTop(),
 			$filtertext = obj,
 			$scrollPast = $('#scroll-indicator').offset().top;
@@ -313,13 +313,13 @@ $(function() {
 				moveFade('refine');
 				filterSelector(this, 'lvl1');
 				$services.addClass('active-list').show();
-				$('.active-list .filter-item').addClass('active');
+				$('.active-list').find('.filter-item').addClass('active');
 			break;
 			case 'refine-clients':
 				moveFade('refine');
 				filterSelector(this, 'lvl1');
 				$clients.addClass('active-list').show();
-				$('.active-list .filter-item').addClass('active');
+				$('.active-list').find('.filter-item').addClass('active');
 			break;
 		}
 		pushText();
@@ -346,9 +346,9 @@ $(function() {
 	function filterSelector(obj, level) {
 		var $this = $(obj),
 			$activeList = $('.active-list'),
-			$activeListChildren = $('.active-list .filter-item'),
+			$activeListChildren = $('.active-list').find('.filter-item'),
 			$filterByActive = $('.filter-by-item.active'),
-			amountActive = $('.active-list .filter-item.active').length;
+			amountActive = $('.active-list').find('.filter-item.active').length;
 
 
 		if (level == 'lvl1') {
@@ -359,7 +359,7 @@ $(function() {
 
 			$this.toggleClass('active');
 
-			amountActive = $('.active-list .filter-item.active').length;
+			amountActive = $('.active-list').find('.filter-item.active').length;
 
 			if (amountActive < 1) {			
 				removeAddActive(false, $('#all.filter-by-item'));
@@ -384,9 +384,9 @@ $(function() {
 
 	function pushText() {
 		var activeListID = $('.active-list').attr('id'),
-			activeLi = $('.active-list .filter-item.active'),
+			activeLi = $('.active-list').find('.filter-item.active'),
 			amountActive = activeLi.length,
-			total = $('.active-list .filter-item').length;
+			total = $('.active-list').find('.filter-item').length;
 
 		if (amountActive < 1) {
 			$filterToggle.text('all');
@@ -415,33 +415,56 @@ $(function() {
 		}
 	}
 
-	function imageHover() {
-		var $workItem = $('.work-item');
+	var workItemObj = {
+		events: function() {
+			var self = this,
+				$workItem = $('.work-item'),
+				$top = $('.to-top'),
+				bwCheck = '_bw',
+				scrollRunning;
+				
 
-		$workItem.on({
-			mouseenter: function() {
-				var $this = $(this),
-					$img = $this.find('img'),
-					src = $img.attr('src'),
-					slice = src.slice(0, -7),
-					finalSlice = slice + '.png';
+			$workItem.on({
+				mouseenter: function() {
+					var $this = $(this),
+						$img = $this.find('img'),
+						src = $img.attr('src'),
+						slice = src.slice(0, -7),
+						finalSlice = slice + '.png';
 
-				$this.addClass('active');
-				$this.find('img').attr('src', finalSlice);
-			},
-			mouseleave: function() {
-				var $this = $(this),
-					$img = $this.find('img'),
-					src = $img.attr('src'),
-					slice = src.slice(0, -4),
-					finalSlice = slice + '_bw.png';
+					if (!scrollRunning) {
+						$this.addClass('active').find('img').attr('src', finalSlice);
+					}
+				},
+				mouseleave: function() {
+					var $this = $(this),
+						$img = $this.find('img'),
+						src = $img.attr('src'),
+						slice = src.slice(0, -4),
+						finalSlice = slice + '_bw.png';
 
-				$this.removeClass('active');
-				$this.find('img').attr('src', finalSlice);
-			}
-		})
+					if (!scrollRunning && src.indexOf(bwCheck) == -1)	{
+						$this.removeClass('active').find('img').attr('src', finalSlice);
+					}
+				}
+			});	
+			$top.on({
+				click:function() {
+					var $this = $(this),
+					scrollTime = 300;
 
+					scrollRunning = true;
+
+					scrollToObj($('#cs-filter-text'), 'click');
+
+					setTimeout(function() {
+						scrollRunning = false;
+					}, scrollTime);
+				}
+			})
+		},
 	}
+
 
 	//////////// INITIALISE FUNCTIONS ////////////
 
@@ -453,7 +476,7 @@ $(function() {
 
 		if (bodyClass == 'our-work') {
 			csIndexInit();
-			imageHover();
+			workItemObj.events();
 		}
 	};
 
