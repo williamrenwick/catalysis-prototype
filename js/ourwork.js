@@ -1,7 +1,6 @@
 	/**************************************************************************
 	Case Studies Index
 	***************************************************************************/
-
 	var $filterBody = $('#filter-body'),
 		$filterToggle = $('#filter-toggle'),
 		$viewBy = $('.filter-by-item'),
@@ -115,17 +114,6 @@
 		}
 	}
 
-	function fullHeight(item) {
-		var windowH = $(window).height();
-
-		if (typeof item === 'object'){
-			item.css({
-				height: windowH
-			});
-		} else {
-			return
-		}
-	}
 
 	var workItemObj = {
 		events: function() {
@@ -174,3 +162,5 @@
 		workItemObj.events();
 		fullHeight($intro);
 	};
+	csIndexInit();
+

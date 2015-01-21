@@ -1,4 +1,53 @@
+////////////////////////////////////////////////////////////////////////////////////On Demand/Global Functions ///////////////////////////////////////////////////////////////////////////////////
 
+function scrollToObj(obj, input, callback) {
+	var st = $(this).scrollTop(),
+		$filtertext = obj;
+
+	if (input == 'click') {
+		$('html, body').animate({
+			scrollTop: $filtertext.offset().top
+		}, 300);
+	}
+};
+
+
+function fullHeight(item) {
+		var windowH = $(window).height();
+
+		if (typeof item === 'object'){
+			item.css({
+				height: windowH
+			});
+		} else {
+			return
+		}
+};
+var imgChange = {
+	colorImg: function(obj) {
+		var $this = $(obj),
+			$img = $this.find('img'),
+			src = $img.attr('src'),
+			slice = src.slice(0, -7),
+			finalSlice = slice + '.png';
+
+		$this.addClass('active').find('img').attr('src', finalSlice);
+	},
+	bwImg: function(obj) {
+		var $this = $(obj),
+			$img = $this.find('img'),
+			src = $img.attr('src'),
+			slice = src.slice(0, -4),
+			finalSlice = slice + '_bw.png';
+
+		if (src.indexOf('_bw') == -1)
+			$this.removeClass('active').find('img').attr('src', finalSlice);
+	}
+}
+
+var hasScrolled;
+
+//////////////////////////////////////////////////////////////////////////////////// On Load Functions ///////////////////////////////////////////////////////////////////////////////////
 $(function() {
 	/////////////////////////////////////////////SCROLL EVENTS//////////////////////////////////////////
 
@@ -20,19 +69,7 @@ $(function() {
 	    }
 	}, 50);
 
-	function scrollToObj(obj, input, callback) {
-		var st = $(this).scrollTop(),
-			$filtertext = obj,
-			$scrollPast = $('#scroll-indicator').offset().top;
-
-		if (input == 'click') {
-			$('html, body').animate({
-				scrollTop: $filtertext.offset().top
-			}, 300);
-		}
-	};
-
-	function hasScrolled() {
+	hasScrolled = function () {
 	    var st = $(this).scrollTop(),
 	    	$nav = $('.nav'),
 	    	bodyBGColor = $('body').css('background-color');
@@ -57,11 +94,8 @@ $(function() {
 	            	$nav.css({'background-color': 'transparent'});
 	        }
 	    }
-	    
 	    lastScrollTop = st;
 	}
-
-
 	/////////////////////////////////////////////MENU EVENTS//////////////////////////////////////////
 	function createHamburger() {
 		var mobile = $('<div>').addClass('nav-mobile'),
@@ -147,27 +181,9 @@ $(function() {
 		}
 	};
 	
-	var imgChange = {
-		colorImg: function(obj) {
-			var $this = $(obj),
-				$img = $this.find('img'),
-				src = $img.attr('src'),
-				slice = src.slice(0, -7),
-				finalSlice = slice + '.png';
 
-			$this.addClass('active').find('img').attr('src', finalSlice);
-		},
-		bwImg: function(obj) {
-			var $this = $(obj),
-				$img = $this.find('img'),
-				src = $img.attr('src'),
-				slice = src.slice(0, -4),
-				finalSlice = slice + '_bw.png';
 
-			if (src.indexOf('_bw') == -1)
-				$this.removeClass('active').find('img').attr('src', finalSlice);
-		}
-	}
+
 
 
 	////////////////////////// PAGE-SPECIFIC FUNCTION LOGIC /////////////////////////////

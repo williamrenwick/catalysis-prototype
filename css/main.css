@@ -1297,7 +1297,7 @@ footer {
     width: 100%;
     padding-right: 30px;
     padding-left: 30px;
-    padding-top: 40px;
+    padding-top: 160px;
     top: 0;
     left: 0;
     margin: 0;
@@ -1326,7 +1326,7 @@ footer {
     margin-top: 80px;
   }
   #scroll-indicator h5 {
-    width: 300px;
+    width: 244px;
     font-size: 14px;
   }
   #cs-filter-text {
@@ -1353,8 +1353,7 @@ footer {
   }
   .work-text h4,
   .view-proj,
-  .work-item.active .to-top,
-   {
+  .work-item.active .to-top {
     display: none;
   }
   .work-item.active .to-top {
