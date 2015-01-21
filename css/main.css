@@ -76,10 +76,12 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-body.our-work {
+body.dark {
   background-color: #161616;
 }
-
+body.light {
+  background-color: #FBFBFB;
+}
 .nav {
   position: fixed;
   display: inline-block;
@@ -95,11 +97,11 @@ body.our-work {
   -o-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out 0s;
-  -moz-transition: -moz-transform 0.3s ease-in-out 0s;
-  -o-transition: -o-transform 0.3s ease-in-out 0s;
-  -ms-transition: -ms-transform 0.3s ease-in-out 0s;
-  transition: transform 0.3s ease-in-out 0s;
+  -webkit-transition: -webkit-transform 0.3s 0s, background-color 0.2s 0.3s;
+  -moz-transition: -moz-transform 0.3s 0s, background-color 0.2s 0.3s;
+  -o-transition: -o-transform 0.3s 0s, background-color 0.2s 0.3s;
+  -ms-transition: -ms-transform 0.3s 0s, background-color 0.2s 0.3s;
+  transition: transform 0.3s 0s, background-color 0.2s 0.3s;
 }
 .nav.nav-up {
   -webkit-transform: translateY(-81px);
@@ -308,9 +310,6 @@ body.our-work {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-}
-#mainwrapper {
-  padding-top: 81px;
 }
 .section-wrapper {
   width: 100%;
@@ -877,6 +876,80 @@ body.our-work {
 .load-more.loading h5 {
   color: #383838;
 }
+/* *********************************** PROJECT VIEW ******************************* */
+
+#header {
+  width: 100%;
+  background-size: cover;
+}
+#header:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+}
+#header-txt-cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 460px;
+  margin-top: -230px;
+  margin-left: -300px;
+  font-family: "apercu";
+  color: #ffffff;
+  text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.05);
+}
+#header-txt-cont h1,
+#header-txt-cont h5,
+#header-txt-cont p {
+  position: relative;
+  text-align: center;
+}
+#header-txt-cont h1,
+#header-txt-cont h5 {
+  text-transform: uppercase;
+}
+#header-txt-cont h1 {
+  font-size: 68px;
+  margin-bottom: 60px;
+}
+#header-txt-cont h1:before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 40px;
+  height: 4px;
+  margin-left: -20px;
+  background-color: #ffffff;
+}
+#header-txt-cont h5 {
+  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 40px;
+}
+#header-txt-cont p {
+  font-size: 16px;
+  font-weight: 200;
+}
+.two-col {
+  float: left;
+  width: 50%;
+}
+#header-client,
+#header-date {
+  margin-bottom: 60px;
+}
+#header-client {
+  text-transform: uppercase;
+  text-align: left;
+}
+#header-date {
+  text-transform: uppercase;
+  text-align: right;
+}
+
 
 /* *********************************** FOOTER ******************************* */
 footer {
