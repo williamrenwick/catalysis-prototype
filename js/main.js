@@ -284,7 +284,7 @@ $(function() {
 	});
 
 	/**************************************************************************
-	Case Studies
+	Case Studies Index
 	***************************************************************************/
 
 	var $filterBody = $('#filter-body'),
@@ -479,19 +479,35 @@ $(function() {
 		}
 	}
 
+	/**************************************************************************
+	Case Studies Project View
+	***************************************************************************/
+
+
+
 
 
 	//////////// INITIALISE FUNCTIONS ////////////
 
 	function init(){
-		var bodyClass = $('body').attr('class');
-
+		var pageType = $('#main-wrapper').data("page");
+		//global functions to call here
 		createHamburger();
 		menuObj.events();
+		//specific page functions to call here
+		switch(pageType) {
+			case 'homepage':
+				//call homepage functions e.g. wrap slider functions/event handlers in obj/function and call here. 
+				break;
 
-		if (bodyClass == 'our-work') {
-			csIndexInit();
-			workItemObj.events();
+			case 'our-work':
+				csIndexInit();
+				workItemObj.events();				
+				break;
+
+			case 'project-view':
+				projViewInit();
+				break;
 		}
 	};
 
@@ -499,6 +515,9 @@ $(function() {
 	function csIndexInit() {
 		fullHeightWidth($intro);
 	};
+	function projViewInit() {
+		fullHeightWidth($('#header'));
+	}
 
 	init();
 	//resize functions
