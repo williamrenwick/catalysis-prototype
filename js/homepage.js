@@ -1,7 +1,7 @@
 	/**************************************************************************
 	HOMEPAGE LOGIC
 	***************************************************************************/	
-$(function () {
+//$(function () {
 	var animStop = true;
 
 	$("#arrowRight").on('click', function(){
@@ -15,7 +15,7 @@ $(function () {
 			selectedButton = $(".slideshowMenuItemSelected"),
 			nextButton	   = selectedButton.next('.slideshowMenuItem');
 		
-		console.log(currentSlide,nextSlide)
+		console.log(currentSlide,nextSlide,selectedButton,nextButton)
 
 		if(nextSlide.length==0)	
 		{
@@ -130,5 +130,5 @@ $(function () {
 		$(this).addClass("slideshowMenuItemSelected");	
 	});
 
-})
+//})
 	
