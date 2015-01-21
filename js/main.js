@@ -487,14 +487,15 @@ $(function() {
 
 
 
-	//////////// INITIALISE FUNCTIONS ////////////
 
-	function init(){
-		var pageType = $('#main-wrapper').data("page");
-		//global functions to call here
-		createHamburger();
-		menuObj.events();
-		//specific page functions to call here
+
+	////////////////////////// PAGE-SPECIFIC FUNCTION LOGIC /////////////////////////////
+
+	function specificPageLoad(){
+		var pageType = $('#mainwrapper').data('page');
+
+		console.log(pageType)
+
 		switch(pageType) {
 			case 'homepage':
 				//call homepage functions e.g. wrap slider functions/event handlers in obj/function and call here. 
@@ -507,17 +508,36 @@ $(function() {
 
 			case 'project-view':
 				projViewInit();
+				console.log('hello')
 				break;
 		}
-	};
+	}
 
+
+
+	//////////// INITIALISE FUNCTIONS ////////////
+
+	function init() {
+		var pageType = $('#main-wrapper').data("page");
+		//global functions to call here
+		createHamburger();
+		menuObj.events();
+		//specific page functions to call here
+		specificPageLoad();
+	};
 
 	function csIndexInit() {
 		fullHeightWidth($intro);
 	};
 	function projViewInit() {
-		fullHeightWidth($('#header'));
+		var headerImg = $('#header');
+
+		fullHeightWidth(headerImg);
 	}
+
+
+
+
 
 	init();
 	//resize functions
