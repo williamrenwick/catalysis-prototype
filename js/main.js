@@ -16,7 +16,7 @@ $(function() {
 	setInterval(function() {
 	    if (didScroll) {
 	        hasScrolled();
-			scrollToObj($('#cs-filter-text'), 'scroll');
+			/*scrollToObj($('#cs-filter-text'), 'scroll');*/
 	        didScroll = false;       
 	    }
 	}, 50);
@@ -26,14 +26,14 @@ $(function() {
 			$filtertext = obj,
 			$scrollPast = $('#scroll-indicator').offset().top;
 
-		if (st > $scrollPast && scrollHasRun == false && input == 'scroll') {
+		/*if (st > $scrollPast && scrollHasRun == false && input == 'scroll') {
 
 			$('html, body').animate({
 				scrollTop: $filtertext.offset().top
 			}, 300);
 
 			setTimeout(function() { scrollHasRun = true }, 100)
-		} else if (input == 'click') {
+		} else */if (input == 'click') {
 			$('html, body').animate({
 				scrollTop: $filtertext.offset().top
 			}, 300);
@@ -435,6 +435,9 @@ $(function() {
 					if (!scrollRunning)	{
 						imgChange.bwImg(this);
 					}
+				},
+				click: function() {
+
 				}
 			});	
 			$top.on({

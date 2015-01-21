@@ -964,6 +964,12 @@ footer {
     width: 41%;
     padding-left: 50px;
   }
+  .view-proj {
+    right: 80px;
+  }
+  .to-top {
+    left: 80px;
+  }
 } 
 
 @media only screen and (min-width: 1025px) and (max-width: 1600px) {
@@ -980,6 +986,9 @@ footer {
   }
   .work-text h4 {
     font-size: 16px;
+  }
+  .view-proj {
+    right: 80px;
   }
   .to-top {
     left: 80px;
