@@ -19,7 +19,7 @@ html {
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #3524d3;
     text-shadow: none;
 }
 
@@ -624,6 +624,11 @@ body.our-work {
   margin-top: 20px;
   background-color: #000000;
   overflow: hidden;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none; 
   -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   -o-transition: all 0.3s ease-in-out 0s;
