@@ -47,6 +47,58 @@ var imgChange = {
 
 var hasScrolled;
 
+
+//MAPS
+
+function initializeMap() {
+	var MY_MAPTYPE_ID = 'custom_style';
+	var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"administrative","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"administrative.country","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"administrative.country","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.locality","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":"-100"},{"lightness":"30"}]},{"featureType":"administrative.neighborhood","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"administrative.land_parcel","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"simplified"},{"gamma":"0.00"},{"lightness":"74"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"lightness":"3"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
+
+var myLatlng = new google.maps.LatLng(51.524976,-0.107037);
+
+var image = 'img/marker.png';
+
+
+
+
+	  var mapOptions = {
+	  	scrollwheel: false,
+          zoomControl: false,
+          zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+        panControl: false,
+    panControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+	    zoom: 16,
+	    center: new google.maps.LatLng(51.524976, -0.107037),
+	    mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+    },
+    mapTypeId: MY_MAPTYPE_ID
+	  };
+	  map = new google.maps.Map(document.getElementById('mapSection'),
+	      mapOptions);
+	  
+	    var styledMapOptions = {
+		    name: 'Custom Style'
+		  };
+	  
+	  var customMapType = new google.maps.StyledMapType(mapStyle, styledMapOptions);
+
+	  map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+	  
+	  // To add the marker to the map, use the 'map' property
+		var marker = new google.maps.Marker({
+		    position: myLatlng,
+		    map: map,
+		    icon: image
+		});
+	  
+	}
+
 //////////////////////////////////////////////////////////////////////////////////// On Load Functions ///////////////////////////////////////////////////////////////////////////////////
 $(function() {
 	/////////////////////////////////////////////SCROLL EVENTS//////////////////////////////////////////
