@@ -23,8 +23,8 @@ function fullHeight(item) {
 			return
 		}
 };
-var imgChange = {
-	colorImg: function(obj) {
+imgChange = function() {
+	function colorImg(obj) {
 		var $this = $(obj),
 			$img = $this.find('img'),
 			src = $img.attr('src'),
@@ -32,8 +32,8 @@ var imgChange = {
 			finalSlice = slice + '.png';
 
 		$this.addClass('active').find('img').attr('src', finalSlice);
-	},
-	bwImg: function(obj) {
+	};
+	function bwImg(obj) {
 		var $this = $(obj),
 			$img = $this.find('img'),
 			src = $img.attr('src'),
@@ -42,10 +42,12 @@ var imgChange = {
 
 		if (src.indexOf('_bw') == -1)
 			$this.removeClass('active').find('img').attr('src', finalSlice);
+	};
+	return {
+		colorImg: colorImg,
+		bwImg: bwImg
 	}
-}
-
-var hasScrolled;
+}();
 
 
 //MAPS
@@ -99,55 +101,78 @@ var image = 'img/marker.png';
 	  
 	}
 
+primaryNavControl = function() {
+	var lastScrollTop = 0,
+		delta = 5,
+		navbarHeight = $('.nav').outerHeight(),
+		$nav = $('.nav'),
+	    bodyBGColor = $('body').css('background-color'),
+	    navUpState;
+
+	function navUp() {
+		$nav.removeClass('nav-down').addClass('nav-up');
+	    $nav.css({
+	    	'background-color': bodyBGColor
+	    });	
+	}
+	function navDown() {
+		$nav.removeClass('nav-up').addClass('nav-down');
+	    if(scrollControl.st < 80)
+	    	$nav.css({'background-color': 'transparent'});
+	}
+	function init() {
+
+		if (scrollControl.st > lastScrollTop && scrollControl.st > navbarHeight) {
+			navUp();
+		} else if (scrollControl.st + $(window).height() < $(document).height()) {
+			navDown();
+		}
+
+		lastScrollTop = scrollControl.st;
+	}
+	return {
+		navState: navUpState,
+		navScroll: init
+	}
+}();
+
+scrollControl = function() {
+	var didScroll; 
+	var st = $(window).scrollTop();
+
+	function hasScrolled() {
+	    primaryNavControl.navScroll();	    
+	}
+	return {
+		st: st,
+		didScroll: didScroll,
+		hasScrolled: hasScrolled
+	}
+}();
+
 //////////////////////////////////////////////////////////////////////////////////// On Load Functions ///////////////////////////////////////////////////////////////////////////////////
 $(function() {
 	/////////////////////////////////////////////SCROLL EVENTS//////////////////////////////////////////
 
-	// Hide Header on on scroll down
-	var didScroll;
-	var scrollHasRun = false;
-	var lastScrollTop = 0;
-	var delta = 5;
-	var navbarHeight = $('.nav').outerHeight();
 
 	$(window).scroll(function(event){
-	    didScroll = true;
+	    scrollControl.didScroll = true;
+	    
 	});
 
 	setInterval(function() {
-	    if (didScroll) {
-	        hasScrolled();
-	        didScroll = false;       
-	    }
-	}, 50);
 
-	hasScrolled = function () {
-	    var st = $(this).scrollTop(),
-	    	$nav = $('.nav'),
-	    	bodyBGColor = $('body').css('background-color');
-	    
-	    // Make sure they scroll more than delta
-	    if(Math.abs(lastScrollTop - st) <= delta)
-	        return;
-	    
-	    // If they scrolled down and are past the navbar, add class .nav-up.
-	    // This is necessary so you never see what is "behind" the navbar.
-	    if (st > lastScrollTop && st > navbarHeight){
-	        // Scroll Down
-	        $nav.removeClass('nav-down').addClass('nav-up');
-	        $nav.css({
-	        	'background-color': bodyBGColor
-	        });
-	    } else {
-	        // Scroll Up
-	        if(st + $(window).height() < $(document).height()) {
-	            $nav.removeClass('nav-up').addClass('nav-down');
-	            if(st < 80)
-	            	$nav.css({'background-color': 'transparent'});
-	        }
+	    if (scrollControl.didScroll) {
+
+	    	scrollControl.st = $(window).scrollTop();
+
+	        scrollControl.hasScrolled(scrollControl.st);
+	        secondNav.navFix();
+
+	        scrollControl.didScroll = false;       
 	    }
-	    lastScrollTop = st;
-	}
+	}, 150);
+
 	/////////////////////////////////////////////MENU EVENTS//////////////////////////////////////////
 	function createHamburger() {
 		var mobile = $('<div>').addClass('nav-mobile'),
@@ -253,7 +278,7 @@ $(function() {
 				break;
 
 			case 'project-view':
-				fullHeight($header);
+				fullHeight(projectViewVar.$header);
 				break;
 		}
 	}
