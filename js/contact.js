@@ -3,10 +3,11 @@
 var open = false;
 
 $('#joinButton').click(function () {
+    var distanceToScroll = $(document).height() - $("#joinButton").height() - 300 + "px";
     console.log("asdasd")
     if(open === false) {
-        $('#joinButtonContent').animate({ height: '305px' });
-        $('#joinButton').animate({ bottom: '305px' });
+        $('#joinButtonContent').animate({ height: distanceToScroll });
+        $('#joinButton').animate({ bottom: distanceToScroll });
         open = true;
     } else {
         $('#joinButtonContent').animate({ height: '0px' });

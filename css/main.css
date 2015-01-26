@@ -1190,7 +1190,7 @@ body.light {
 }
 
 #contactInfoSection{
-    height: 50%;
+    height: 100%;
     width: 50%;
     background-color:#fafafa;
     float: left;
@@ -1218,15 +1218,19 @@ body.light {
     font-weight: 400;
     line-height: 65px;
     color: #000000;
+    margin-left: 50px;
 /*    text-transform: uppercase;*/
 }
 
 #contactInfoSection h1:before {
-    bottom: 6px;
-    left: -40px;
-    width: 30px;
-    height: 3px;
-  }
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: -50px;
+  width: 40px;
+  height: 4px;
+  background-color: #000000;
+}
     
 #joinButton{
     height: 200px;
@@ -1238,8 +1242,23 @@ body.light {
 } 
 
 #joinButton h1{
+    margin-left: 90px;
+    top: 70px;
+    /*
     padding-left: 40px;
-    line-height: 200px;
+
+    margin-left: 50px;
+*/
+}
+
+#joinButton h1:before {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+/*  left: -50px;*/
+  width: 40px;
+  height: 4px;
+  background-color: #000000;
 }
 
 #joinButtonContainer {
@@ -1284,7 +1303,7 @@ body.light {
 }
 
 #applyButton {
-    padding: 20px;
+    padding: 15px 30px 15px 30px;
     border: 2px solid #000000;
     width: 88px;
     margin-top: 50px;
@@ -1317,7 +1336,7 @@ body.light {
 
 #applyForm{
     color: #b5b9b8;
-    width: 80%;
+    width: 100%;
 }
 
 #formFirstSection{
@@ -1334,15 +1353,39 @@ body.light {
 }
 
 #applyForm input{
-background: transparent;
+    width: 198px;
+    height: 20px;
+    line-height: 20px;
+    top: -25px;
+    border: none;
+    resize: none;
+    margin-left: 2px;
+    position: relative;
+    padding: 0 2px;
+    background: transparent;
     border-top: 0;
+    color: #ffffff;
+}
+
+#applyForm input:focus{
+    outline: 0;
 }
     
 #textForm{
-    width: 100px;
+    width: 20%;
     position: relative;
     float: left;
     line-height: 50px;
+}
+
+.inputDivBorder{
+    border-left: 2px solid #b5b9b8;
+    border-right: 2px solid #b5b9b8;
+    border-bottom: 2px solid #b5b9b8;
+    height: 10px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 37px;
 }
 
 #textForm p{
@@ -1350,7 +1393,7 @@ background: transparent;
 }
 
 #fieldForm{
-    width: 200px;
+    width: 80%;
     position: relative;
     float: left;
     line-height: 50px;
@@ -1365,7 +1408,7 @@ background: transparent;
 
 #textForm2 p{
     margin: 0;
-    line-height: 70px;   
+    line-height: 63px;   
 }
 
 #fileForm{
@@ -1375,16 +1418,16 @@ background: transparent;
 }
 
 .attach{
-    padding: 20px;
+    padding: 15px 25px 15px 25px;
     border: 2px solid #b5b9b8;
     width: 50px;
     cursor: pointer;
-    margin:0;
-    margin-bottom: 10px;
+    margin: 0;
+    margin-bottom: 15px;
 }
 
 .send{
-    padding: 20px;
+    padding: 15px 25px 15px 25px;
     border: 2px solid #b5b9b8;
     width: 50px;
     cursor: pointer;
@@ -1392,6 +1435,7 @@ background: transparent;
     margin-bottom: 10px;
     position: relative;
     float: right;
+    right: 17%;
 }
 
 
@@ -1559,6 +1603,26 @@ footer {
   .to-top {
     left: 50px;
   }
+    
+    /*********** CONTACT PAGE *********/
+    #mapSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoDiv{
+        padding-top: 50px;
+    }
+    #joinButton{
+        width: 100%;
+    }
+    #joinButtonContainer{
+        width:100%;
+    }
+    
 }
 @media only screen and (min-width: 569px) and (max-width: 768px) {
   .nav {
@@ -1663,6 +1727,26 @@ footer {
   .to-top {
     left: 36px;
   }
+    
+    /*********** CONTACT PAGE *********/
+    #mapSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoDiv{
+        padding-top: 50px;
+    }
+    #joinButton{
+        width: 100%;
+    }
+    #joinButtonContainer{
+        width:100%;
+    }
+    
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) {
   .nav {
@@ -1805,6 +1889,70 @@ footer {
   .work-item.active .to-top {
     display: none;
   }
+    /*********** CONTACT PAGE *********/
+    #mapSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoSection{
+        width: 100%;
+        height:50%;
+    }
+    #contactInfoDiv{
+        padding-top: 50px;
+    }
+    #joinButton{
+        width: 100%;
+    }
+    #joinButtonContainer{
+        width:100%;
+    }
+    #contactInfoDiv {
+        padding: 30px;
+        padding-bottom: 0;
+    }
+    
+    #contactInfo2Div{
+        padding-left: 30px;
+        padding-bottom: 20px;
+    }
+    
+    #contactInfo2Div p{
+        margin-bottom:10px;
+        margin-top:0px;
+    }
+    
+    #contactInfoSection h1{
+        font-size: 38px;
+        line-height: 40px;
+        padding-left: 24px;
+        margin-left: 0;
+    }
+    
+    #contactInfoSection h1:before{
+        bottom: 6px;
+        left: 0px;
+        width: 20px;
+        height: 3px;
+    }
+    
+    #joinButton{
+        height:100px;
+        position: relative;
+    }
+    
+    #joinButton h1 {
+        margin-left: 30px;
+        top: 25px;
+    }
+    
+    #joinButtonContainer{
+        display: none;
+    }
+    #applyNow{
+        display: none;
+    }
+    
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
   .landingBox.welcome {
