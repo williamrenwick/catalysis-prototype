@@ -1096,8 +1096,6 @@ body.light {
   text-transform: uppercase;
 }
 #proj-image-cont {
-  height: 2000px;
-  background: url(../img/stardust_@2X.png) repeat;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -1106,9 +1104,7 @@ body.light {
   margin-bottom: 20px;
 }
 #proj-text-cont {
-  height: 1400px;
-  background-color: blue;
-  /*padding: 20px 90px;*/
+  padding: 20px 90px;
   box-sizing: border-box;
 }
 #proj-text-wrap {
