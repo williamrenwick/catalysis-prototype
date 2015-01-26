@@ -63,7 +63,7 @@ var image = 'img/marker.png';
 
 
 
-	  var mapOptions = {
+	var mapOptions = {
 	  	scrollwheel: false,
           zoomControl: false,
           zoomControlOptions: {
@@ -157,7 +157,6 @@ $(function() {
 
 	$(window).scroll(function(event){
 	    scrollControl.didScroll = true;
-	    
 	});
 
 	setInterval(function() {
