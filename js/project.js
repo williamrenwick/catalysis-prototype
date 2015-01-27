@@ -42,10 +42,16 @@
 			$text = $('#proj-text-cont'),
 			imgH = $imgs.height(),
 			textH = $text.height(),
-			diff = Math.abs(imgH - textH),
 			scrollLimit = textH - $(window).height() + 100,
-			scrollLimitImg = imgH - $(window).height() + 100;
-
+			scrollLimitImg = imgH - $(window).height() + 100,
+			ratio = function() {
+				//var larger = (imgH > textH) ? return imgH : return textH;
+				if(scrollLimit > scrollLimitImg) {
+					return scrollLimit / scrollLimitImg
+				} else {
+					return scrollLimitImg / scrollLimit
+				}
+			}
 
 		function setHeight() {
 			if(imgH > textH){
@@ -53,16 +59,13 @@
 			}
 
 		}
-
 		setHeight();
 
 		return {
 			imageH: imgH,
 			textH: textH,
 			imgs: $imgs,
-			diff: diff,
-			scrollLimit: scrollLimit,
-			imgLimit: scrollLimitImg
+			ratio: ratio
 		}
 	}();
 
@@ -72,34 +75,27 @@
 			windowPos = $(window).scrollTop(),
 			pos = windowPos - start,
 
-        	textDiffRatio = (1 / colCompare.scrollLimit) * pos,
-        	newPos = textDiffRatio * colCompare.imgLimit;
-
-		/*	imgDiffRatio = (1 / colCompare.scrollLimit) * pos,
-        	newPos = imgDiffRatio * colCompare.scrollLimit;
-*/
-        	console.log(textDiffRatio, newPos);
-		
+        	end = (start + colCompare.textH) - $(window).height();
+			
+        console.log(colCompare.ratio);
 
 		if (windowPos <= start) {
+
 			var tween = TweenMax.to(colCompare.imgs, 0, { y: 0 });
+
 		} else if (windowPos > start && colCompare.imageH > colCompare.textH) {
 
-			tween = TweenMax.to(colCompare.imgs, 0, { y: - newPos})
+			var tween = TweenMax.to(colCompare.imgs, 0, { y: - newPos})
 
 		} else if (windowPos > start && colCompare.imageH < colCompare.textH) {
-
-			//console.log(pos, newPos)
-			
-			tween = TweenMax.to(colCompare.imgs, 0, { y: - newPos });
+	
+			var tween = TweenMax.to(colCompare.imgs, 0, { y: - newPos });
 		} 
 
-		/*if (windowPos > end) {
-			console.log('tween end')
-			tween.pause();
-		}*/
-		
-	}
+		if (windowPos > end) {
+			tween.kill();
+		}
+	};
 
 	function projViewInit() {	
 		fullHeight(projectViewVar.$header);
