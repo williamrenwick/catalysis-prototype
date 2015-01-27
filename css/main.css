@@ -940,9 +940,38 @@ body.light {
   font-size: 16px;
   font-weight: 200;
 }
-.two-col {
+.col {
   float: left;
+}
+.one-col {
+  width: 8.33%
+}
+.two-col {
+  width: 16.66%;
+}
+.three-col {
+  width: 25%;
+}
+.four-col {
+  width: 33.33%;
+}
+.five-col {
+  width: 41.66%
+}
+.six-col {
   width: 50%;
+}
+.nine-col {
+  width: 75%;
+}
+.ten-col {
+  width: 83.33%;
+}
+.eleven-col {
+  width: 91.66%;
+}
+.twelve-col {
+  width: 100%;
 }
 #header-client,
 #header-date {
@@ -964,11 +993,11 @@ body.light {
   background-color: #ffffff;
   overflow: hidden;
   z-index: 14;
-  -webkit-transition: -webkit-transform 0.19s linear;
-  -moz-transition: -moz-transform 0.19s linear;
-  -o-transition: -o-transform 0.19s linear;
-  -ms-transition: -ms-transform 0.19s linear;
-  transition: transform 0.19s linear;
+  -webkit-transition: all 0.19s linear;
+  -moz-transition: all 0.19s linear;
+  -o-transition: all 0.19s linear;
+  -ms-transition: all 0.19s linear;
+  transition: all 0.19s linear;
 }
 #second-nav.fixed {
   position: fixed;
@@ -981,65 +1010,17 @@ body.light {
   -ms-transform: translateY(81px);
   transform: translateY(81px);
 }
-#proj-social {
-  font-size: 0;
+#proj-info-title-cont {
   height: 100%;
 }
-#proj-social ul {
-  list-style: none;
-  width: 60%;
-  max-width: 400px;
+#proj-info,
+#proj-title {
+  padding-left: 20px;
   height: 100%;
-  margin: 0 auto;
-}
-.four-col {
-  width: 25%;
-}
-.share-ico {
-  display: inline-block;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 30%;
-  opacity: 0.2;
-  cursor: pointer;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.share-ico:hover {
-  opacity: 1;
-}
-#share-twitter.share-ico {
-  background-image: url(../img/share-ico-twitter-01.svg);
-}
-#share-google.share-ico {
-  background-image: url(../img/share-ico-google-01.svg);
-}
-#share-linkedin.share-ico {
-  background-image: url(../img/share-ico-linkedin-01.svg);
-}
-#share-pinterest.share-ico {
-  background-image: url(../img/share-ico-pinterest-01.svg);
-}
-#proj-info {
-  height: 100%;
-  padding: 30px 0 0 0;
   box-sizing: border-box;
 }
-#info-client,
-#info-services {
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  transition: all 0.4s;
-}
-#second-nav.fixed #info-client,
-#second-nav.fixed #info-services {
-  opacity: 0;
-  transform: translateY(-100px);
+.info-left {
+  padding-top: 30px;
 }
 #proj-article-wrap {
   overflow: hidden;
@@ -1053,9 +1034,16 @@ body.light {
   -ms-transition: all 0.4s;
   transition: all 0.4s;
 }
+#second-nav.fixed .info-left {
+  padding-top: 13px;
+}
 #second-nav.fixed #info-title {
+  padding-top: 16px;
   opacity: 1;
-  transform: translateY(-55px);
+  transform: translateY(0px);
+}
+#second-nav.fixed .filter-info{
+  font-size: 16px;
 }
 #info-client h5,
 #info-client h3,
@@ -1095,19 +1083,68 @@ body.light {
   font-weight: 200;
   text-transform: uppercase;
 }
+#proj-social { 
+  display: none;
+  font-size: 0;
+  height: 100%;
+}
+#proj-social ul {
+  list-style: none;
+  width: 60%;
+  max-width: 400px;
+  height: 100%;
+  margin: 0 auto;
+}
+.share-ico {
+  display: inline-block;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  opacity: 0.2;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.share-ico:hover {
+  opacity: 1;
+}
+#share-twitter.share-ico {
+  background-image: url(../img/share-ico-twitter-01.svg);
+}
+#share-google.share-ico {
+  background-image: url(../img/share-ico-google-01.svg);
+}
+#share-linkedin.share-ico {
+  background-image: url(../img/share-ico-linkedin-01.svg);
+}
+#share-pinterest.share-ico {
+  background-image: url(../img/share-ico-pinterest-01.svg);
+}
+#proj-social-btn {
+  height: 100%;
+  background-color: red;
+}
+
 #proj-image-cont {
   padding: 20px;
+  box-sizing: border-box;
+}
+#proj-text-cont {
+  padding: 20px 90px;
   box-sizing: border-box;
 }
 #proj-image-cont img {
   width: 100%;
   margin-bottom: 20px;
 }
-#proj-text-cont {
-  padding: 20px 90px;
-  box-sizing: border-box;
+#proj-text-cont img {
+  display: none;
 }
-#proj-text-wrap {
+.proj-text-wrap {
   margin: 0 auto;
   max-width: 600px;
 }
@@ -1168,8 +1205,37 @@ body.light {
 }
 #proj-quote {
   position: relative;
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  margin: 100px auto;
+  color: #b5b9b8;
+}
+#proj-quote h3,
+#proj-quote h4,
+#proj-quote h5 {
+  position: relative;
+  font-family: "apercu";
+  font-weight: 200;
+}
+#proj-quote h5 {
+  margin: 0 0 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#proj-quote h5:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 40px;
+  height: 2px;
+  margin-left: -20px;
+  background-color: #b5b9b8;
+}
+#proj-quote h3 {
+  margin: 0 0 30px 0;
+  font-size: 18px;
+  color: #797979;
 }
 /* *********************************** CONTACT ******************************* */
 
@@ -1723,27 +1789,57 @@ footer {
   .to-top {
     left: 36px;
   }
+  /********** PROJECT VIEW **********/
+  #second-nav.fixed #info-title {
+    transform: translateY(-45px);
+  }
+  #info-title h3,
+  #info-client h3,
+  #info-services h3 {
+    font-size: 14px;
+  }
+  #info-client h5,
+  #info-services h5 {
+    font-size: 12px;
+  }
+  #proj-image-cont {
+    display: none;
+  }
+  #proj-text-cont {
+    width: 100%;
+    padding: 20px 45px;
+  }
+  .proj-text-wrap {
+    padding: 0 60px;
+  }
+  #proj-text-cont img{
+    width: 100%;
+    display: block;
+  }
+  #proj-text-cont p {
+    margin-bottom: 100px;
+  }
     
-    /*********** CONTACT PAGE *********/
-    #mapSection{
-        width: 100%;
-        height:50%;
-    }
-    #contactInfoSection{
-        width: 100%;
-        height:50%;
-    }
-    #contactInfoDiv{
-        padding-top: 50px;
-    }
-    #joinButton{
-        width: 100%;
-    }
-    #joinButtonContainer{
-        width:100%;
-    }
-    
+  /*********** CONTACT PAGE *********/
+  #mapSection{
+      width: 100%;
+      height:50%;
+  }
+  #contactInfoSection{
+      width: 100%;
+      height:50%;
+  }
+  #contactInfoDiv{
+      padding-top: 50px;
+  }
+  #joinButton{
+      width: 100%;
+  }
+  #joinButtonContainer{
+      width:100%;
+  }
 }
+    
 @media only screen and (min-width: 320px) and (max-width: 568px) {
   .nav {
     padding: 30px 30px;
@@ -1885,70 +1981,101 @@ footer {
   .work-item.active .to-top {
     display: none;
   }
-    /*********** CONTACT PAGE *********/
-    #mapSection{
-        width: 100%;
-        height:50%;
-    }
-    #contactInfoSection{
-        width: 100%;
-        height:50%;
-    }
-    #contactInfoDiv{
-        padding-top: 50px;
-    }
-    #joinButton{
-        width: 100%;
-    }
-    #joinButtonContainer{
-        width:100%;
-    }
-    #contactInfoDiv {
-        padding: 30px;
-        padding-bottom: 0;
-    }
-    
-    #contactInfo2Div{
-        padding-left: 30px;
-        padding-bottom: 20px;
-    }
-    
-    #contactInfo2Div p{
-        margin-bottom:10px;
-        margin-top:0px;
-    }
-    
-    #contactInfoSection h1{
-        font-size: 38px;
-        line-height: 40px;
-        padding-left: 24px;
-        margin-left: 0;
-    }
-    
-    #contactInfoSection h1:before{
-        bottom: 6px;
-        left: 0px;
-        width: 20px;
-        height: 3px;
-    }
-    
-    #joinButton{
-        height:100px;
-        position: relative;
-    }
-    
-    #joinButton h1 {
-        margin-left: 30px;
-        top: 25px;
-    }
-    
-    #joinButtonContainer{
-        display: none;
-    }
-    #applyNow{
-        display: none;
-    }
-    
+
+  /********** PROJECT VIEW **********/
+  #second-nav.fixed #info-title {
+    transform: translateY(-45px);
+  }
+  #info-title h3,
+  #info-client h3,
+  #info-services h3 {
+    font-size: 14px;
+  }
+  #info-client h5,
+  #info-services h5 {
+    font-size: 12px;
+  }
+  #proj-image-cont {
+    display: none;
+  }
+  #proj-text-cont {
+    width: 100%;
+    padding: 20px 45px;
+  }
+  .proj-text-wrap {
+    padding: 0 60px;
+  }
+  #proj-text-cont img{
+    width: 100%;
+    display: block;
+  }
+  #proj-text-cont p {
+    margin-bottom: 100px;
+  }
+
+  /*********** CONTACT PAGE *********/
+  #mapSection{
+      width: 100%;
+      height:50%;
+  }
+  #contactInfoSection{
+      width: 100%;
+      height:50%;
+  }
+  #contactInfoDiv{
+      padding-top: 50px;
+  }
+  #joinButton{
+      width: 100%;
+  }
+  #joinButtonContainer{
+      width:100%;
+  }
+  #contactInfoDiv {
+      padding: 30px;
+      padding-bottom: 0;
+  }
+  
+  #contactInfo2Div{
+      padding-left: 30px;
+      padding-bottom: 20px;
+  }
+  
+  #contactInfo2Div p{
+      margin-bottom:10px;
+      margin-top:0px;
+  }
+  
+  #contactInfoSection h1{
+      font-size: 38px;
+      line-height: 40px;
+      padding-left: 24px;
+      margin-left: 0;
+  }
+  
+  #contactInfoSection h1:before{
+      bottom: 6px;
+      left: 0px;
+      width: 20px;
+      height: 3px;
+  }
+  
+  #joinButton{
+      height:100px;
+      position: relative;
+  }
+  
+  #joinButton h1 {
+      margin-left: 30px;
+      top: 25px;
+  }
+  
+  #joinButtonContainer{
+      display: none;
+  }
+  #applyNow{
+      display: none;
+  }   
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
   .landingBox.welcome {

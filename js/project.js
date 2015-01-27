@@ -51,7 +51,6 @@
 			if(imgH > textH){
 				$article.css('height', textH);
 			}
-
 		}
 		setHeight();
 
@@ -59,6 +58,7 @@
 			imageH: imgH,
 			textH: textH,
 			imgs: $imgs,
+			scrollLimit: scrollLimit,
 			ratio: ratio
 		}
 	}();
@@ -69,25 +69,22 @@
 			windowPos = $(window).scrollTop(),
 			pos = windowPos - start,
         	end = (start + colCompare.textH) - $(window).height();
-			
-        console.log(colCompare.ratio);
+
+        console.log(pos, colCompare.scrollLimit);
 
 		if (windowPos <= start) {
 
 			var tween = TweenMax.to(colCompare.imgs, 0, { y: 0 });
 
-		} else if (windowPos > start && colCompare.imageH > colCompare.textH) {
+		} else if ((windowPos > start) && (colCompare.imageH > colCompare.textH) && (pos < colCompare.scrollLimit)) {
 
-			var tween = TweenMax.to(colCompare.imgs, 0, { y: - pos * colCompare.ratio })
+			tween = TweenMax.to(colCompare.imgs, 0, { y: - (pos * colCompare.ratio) + pos })
 
-		} else if (windowPos > start && colCompare.imageH < colCompare.textH) {
-	
-			var tween = TweenMax.to(colCompare.imgs, 0, { y: - pos * colCompare.ratio });
+		} else if ((windowPos > start) && (colCompare.imageH < colCompare.textH) && (pos < colCompare.scrollLimit)) {
+
+			tween = TweenMax.to(colCompare.imgs, 0, { y: - ( pos / colCompare.ratio ) + pos });
 		} 
 
-		if (windowPos > end) {
-			tween.kill();
-		}
 	};
 
 	function projViewInit() {	
