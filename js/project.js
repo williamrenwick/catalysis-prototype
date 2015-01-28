@@ -29,8 +29,22 @@
 				}
 			}
 		}
+		function events(addclass) {
+			var $inner = $('#second-nav-innerwrap');
+
+			$inner.toggleClass(addclass);		
+		}
+		function clickHandler() {
+			var $socialBtn = $('#proj-social-btn');
+
+			$socialBtn.on('click', function() {
+				events('move-left');
+			})
+		}
+
 		return {
-			navFix: navFix
+			navFix: navFix,
+			clickHandler: clickHandler
 		}
 	}();
 
@@ -40,12 +54,30 @@
 		var $article = $('#proj-article-wrap'), 
 			$imgs = $('#proj-image-cont'),
 			$text = $('#proj-text-cont'),
+			$windowH = $(window).height(),
 			imgH = $imgs.height(),
 			textH = $text.height(),
-			scrollLimit = textH - $(window).height(),
-			scrollLimitImg = imgH - $(window).height(),
+			scrollLimit = textH - $windowH ,
+			scrollLimitImg = imgH - $windowH,
 			ratioArr = (scrollLimitImg > scrollLimit) ? [scrollLimitImg, scrollLimit] : [scrollLimit, scrollLimitImg];
 			ratio = ratioArr[0] / ratioArr[1];
+
+		function update() {
+			$windowH = $(window).height(),
+			imgH = $imgs.height(),
+			textH = $text.height(),
+			scrollLimit = textH - $windowH,
+			scrollLimitImg = imgH - $windowH,
+			ratioArr = (scrollLimitImg > scrollLimit) ? [scrollLimitImg, scrollLimit] : [scrollLimit, scrollLimitImg];
+			ratio = ratioArr[0] / ratioArr[1];
+
+			this.imageH = imgH;
+			this.textH = textH;
+			this.scrollLimit = scrollLimit;
+			this.ratio = ratio;
+
+			setHeight();
+		}
 
 		function setHeight() {
 			if(imgH > textH){
@@ -59,7 +91,8 @@
 			textH: textH,
 			imgs: $imgs,
 			scrollLimit: scrollLimit,
-			ratio: ratio
+			ratio: ratio,
+			update: update
 		}
 	}();
 
@@ -70,7 +103,7 @@
 			pos = windowPos - start,
         	end = (start + colCompare.textH) - $(window).height();
 
-        console.log(pos, colCompare.scrollLimit);
+
 
 		if (windowPos <= start) {
 
@@ -84,11 +117,11 @@
 
 			tween = TweenMax.to(colCompare.imgs, 0, { y: - ( pos / colCompare.ratio ) + pos });
 		} 
-
 	};
 
 	function projViewInit() {	
 		fullHeight(projectViewVar.$header);
+		secondNav.clickHandler();
 	};
 
 	$(window).scroll(function() {

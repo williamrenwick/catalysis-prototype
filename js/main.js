@@ -278,6 +278,7 @@ $(function() {
 
 			case 'project-view':
 				fullHeight(projectViewVar.$header);
+				colCompare.update();
 				break;
 		}
 	}
