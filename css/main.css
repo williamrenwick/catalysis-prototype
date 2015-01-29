@@ -1260,6 +1260,169 @@ body.light {
   font-size: 18px;
   color: #797979;
 }
+/* *********************************** BLOG INDEX PAGE ******************************* */
+#blog-idx {
+  height: 678px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  padding: 90px 90px 98px 90px;
+}
+#blog-idx-wrap {
+  position: relative;
+  height: 100%;
+}
+#blog-idx-single-date {
+  top: -31px;
+  left: -535px;
+  width: 490px;
+  font-family: 'apercu';
+  font-weight: 200;
+  text-align: center;
+  color: #666;
+}
+#blog-idx-wrap img {
+  width: 42.1%;
+  max-width: 490px
+}
+#blog-idx-text {
+  display: table;
+  width: 50%;
+  height: 100%;
+  padding-left: 60px;
+  box-sizing: border-box;
+  color: #333;
+  font-family: 'apercu';
+}
+#blog-idx-text-innerwrap {
+  display: table-cell;
+  vertical-align: middle;
+}
+#blog-idx-text h2,
+#blog-idx-text h5 {
+  text-transform: uppercase;
+}
+#blog-idx-text h5,
+#blog-idx-text p {
+  color: #666;
+}
+#blog-idx-text h2 {
+  font-size: 30px;
+}
+#blog-idx-text h5 {
+  font-size: 14px;
+  font-weight: 200;
+}
+#blog-idx-text p {
+  font-size: 16px;
+  line-height: 26px;
+}
+#blog-idx-read-btn {
+  width: 140px;
+  margin-top: 60px;
+  padding: 16px 20px;
+  border: 2px solid #333;
+  border-radius: 0px;
+  box-sizing: border-box;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#blog-idx-read-btn:hover {
+  border-radius: 8px;
+}
+#blog-idx-more-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+}
+#blog-idx-more-btn .box {
+  position: absolute;
+  display: block;
+  border: 3px solid #333;
+  background-color: #f5f5f5;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: left 0.2s;
+  -moz-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  -ms-transition: left 0.2s;
+  transition: left 0.2s;
+}
+#blog-idx-more-btn #box-three {
+  left: 0px;
+}
+#blog-idx-more-btn #box-two {
+  left: 7.5px;
+}
+#blog-idx-more-btn #box-one {
+  left: 15px;
+}
+#blog-idx-more-btn:hover #box-two {
+  left: 15px;
+}
+#blog-idx-more-btn:hover #box-one {
+  left: 27.5px;
+}
+#blog-twt {
+  padding: 90px;
+}
+#twt-title-ico {
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-image: url(../img/share-ico-twitter-01.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.twt-tweet {
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+#blog-twt h2,
+#blog-twt h6,
+#blog-twt p {
+  font-family: "apercu";
+  color: #666666;
+}
+#blog-twt h2 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #cccccc;
+}
+#blog-twt h6 {
+  font-size: 12px;
+  font-weight: 200;
+  color: #cccccc;
+}
+#blog-twt p {
+  font-size: 18px;
+  line-height: 28px;
+}
+.twt-tweet-body a,
+.twt-tweet-body .twt-tweet-user {
+  color: #999999;
+}
+.twt-tweet-body .twt-tweet-hash{
+  color: #3399ff;
+}
 /* *********************************** BLOG INTERNAL PAGE ******************************* */
 #blog-header {
   position: relative;
@@ -1328,21 +1491,23 @@ body.light {
   width: 100%;
   margin: 60px 0;
 }
-#date-cont-flip {
-  position: absolute;
+#blog-main-date {
   top: 0px;
   left: -150px;
   width: 200px;
+}
+.date-cont-flip {
+  position: absolute;
   transform: rotate(-90deg);
   transform-origin: 100% 50%;
   text-align: right;
 }
-#date-cont-flip span {
+.date-cont-flip span {
   position: relative;
   text-transform: uppercase;
   margin-right: 20px;
 }
-#date-cont-flip span:after {
+.date-cont-flip span:after {
   content: '';
   position: absolute;
   right: -15px;

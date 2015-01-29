@@ -36,6 +36,8 @@ var mydrag;
 
 			windowW = $(window).width();
 
+			
+
 			this.drag = drag;
 
 			drag();
