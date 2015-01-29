@@ -166,7 +166,7 @@ $(function() {
 	    	scrollControl.st = $(window).scrollTop();
 
 	        scrollControl.hasScrolled(scrollControl.st);
-	        secondNav.navFix();
+	        //secondNav.navFix();
 
 	        scrollControl.didScroll = false;       
 	    }

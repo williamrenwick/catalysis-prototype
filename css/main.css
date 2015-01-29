@@ -1260,6 +1260,244 @@ body.light {
   font-size: 18px;
   color: #797979;
 }
+/* *********************************** BLOG INTERNAL PAGE ******************************* */
+#blog-header {
+  position: relative;
+  width: 50%;
+  min-height: 420px;
+  padding: 156px 0 0 90px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+#blog-header h1,
+#blog-header h3,
+#blog-main p,
+#blog-main h5 {
+  font-family: "apercu";
+}
+#blog-header h1 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #333333;
+  text-transform: uppercase;
+}
+#blog-header h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+#blog-header-genre {
+  font-weight: 200;
+  color: #666666;
+  text-decoration: underline;
+}
+#blog-header-author span {
+  font-weight: 200;
+}
+#blog-images-wrap {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 70px;
+  overflow: hidden;
+}
+#blog-images {
+  height: 100%;
+  width: 20000px;
+}
+#blog-images img {
+  display: inline-block;
+  margin-left: 20px;
+}
+#blog-main {
+  margin-bottom: 60px;
+}
+#blog-main p {
+  max-width: 800px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+}
+#blog-main h5 {
+  font-weight: 200;
+  font-size: 12px;
+}
+#blog-main-text {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 90px;
+  padding-right: 20px;
+}
+#blog-main-text img {
+  width: 100%;
+  margin: 60px 0;
+}
+#date-cont-flip {
+  position: absolute;
+  top: 0px;
+  left: -150px;
+  width: 200px;
+  transform: rotate(-90deg);
+  transform-origin: 100% 50%;
+  text-align: right;
+}
+#date-cont-flip span {
+  position: relative;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+#date-cont-flip span:after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  bottom: 2px;
+  width: 10px;
+  height: 1px;
+  background-color: black;
+}
+#blog-main-other {
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#blog-main-share,
+#other-blogs {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20px
+}
+#blog-main-share {
+  height: 100px;
+}
+#blog-main-share ul,
+#blog-main-share li {
+  height: 100%;
+}
+#blog-main-share ul {
+  width: 50%;
+  margin: 0 auto;
+}
+#blog-main-share li {
+  max-width: 100px;
+}
+#other-blogs {
+  height: 600px;
+}
+#other-blogs h2 {
+  font-family: "apercu";
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333333;
+}
+#more-other {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 16%;
+}
+#refresh-wrap {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+#refresh-wrap h2 {
+  margin: 0;
+}
+.other-blog-link {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 28%;
+  cursor: pointer;
+}
+.other-blog-link:hover {
+  background-color: #f6f6f6;;
+}
+#link-author-name {
+  position: absolute;
+  top: 50%;
+  width: 140px;
+  left: -45px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  transform-origin: 50% 0;
+}
+.other-blog-link img {
+  max-width: 160px;
+  box-sizing: border-box;
+  padding: 0 0 0 60px;
+}
+.blog-link-wrap {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+}
+.link-titles {
+  max-width: 500px;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.link-titles h3 {
+  font-family: 'apercu';
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+.link-titles h5 {
+  margin: 0;
+}
+#more-this-author {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 90px 90px 90px;
+}
+#more-this-author h2,
+#more-this-author h3,
+#more-this-author h5,
+#more-this-author p {
+  font-family: "apercu";
+  color: #333333;
+}
+#more-this-author h2,
+#more-this-author h3,
+#more-this-author h5 {
+  text-align: center;
+}
+#more-this-author h2 {
+  margin: 50px 0;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+#more-this-author h3 {
+  font-size: 16px;
+  text-transform: uppercase
+}
+#more-this-author h5 {
+  font-size: 12px;
+  font-weight: 200;
+  color: #cccccc;
+}
+#more-this-author p {
+  font-size: 12px;
+}
+.this-author-item {
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+.this-author-item img {
+  width: 100%;
+}
+.link-genre {
+  text-transform: uppercase;
+}
+.link-genre a {
+  text-decoration: underline;
+  cursor: pointer;
+}
 /* *********************************** CONTACT ******************************* */
 
 #contactWrapper{

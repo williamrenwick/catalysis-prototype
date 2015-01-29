@@ -62,6 +62,10 @@
 			ratioArr = (scrollLimitImg > scrollLimit) ? [scrollLimitImg, scrollLimit] : [scrollLimit, scrollLimitImg];
 			ratio = ratioArr[0] / ratioArr[1];
 
+		function setHeight() {
+			$article.css('height', textH);
+		}		
+
 		function update() {
 			$windowH = $(window).height(),
 			imgH = $imgs.height(),
@@ -79,11 +83,6 @@
 			setHeight();
 		}
 
-		function setHeight() {
-			if(imgH > textH){
-				$article.css('height', textH);
-			}
-		}
 		setHeight();
 
 		return {
