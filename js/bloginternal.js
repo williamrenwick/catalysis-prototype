@@ -1,70 +1,57 @@
 	/**************************************************************************
 	BLOG INTERNAL VIEW
 	***************************************************************************/
-
+var mydrag;
 	
 	blogInternal = function(){
 		var $imgs = $('#blog-images'),
 			$img = $('.blog-img'),
 			totalImgW = 0,
+			lastMarginRight = 20,
 			windowW = $(window).width();
-
-		var x1, x2,
-        	y1, y2,
-        	t1, t2;  // Time
-
-    	var minDistance = 40; // Minimum px distance object must be dragged to enable momentum.
-
-	    var onMouseMove = function(e) {
-	        var mouseEvents = $d.data("mouseEvents");
-	        if (e.timeStamp - mouseEvents[mouseEvents.length-1].timeStamp > 40) {
-	            mouseEvents.push(e);
-	            if (mouseEvents.length > 2) {
-	                mouseEvents.shift();
-	            }
-	        }
-	    }
 
 
 		function setImgWidth() {
-			var marginW = 40;
+			var marginW = 20;
 
 			$img.each(function() {
-				totalImgW += $(this).width() + marginW
+				totalImgW += $(this).width() + marginW;
 			});
 
 			$imgs.css('width', totalImgW);
 		}
 
 		function drag() {
-			var marginW = 40,
-				end = - totalImgW + (windowW + marginW);
 
-			$imgs.draggable({
+			$imgs.pep({
 				axis: 'x',
-				stop: function(e, ui) {
-					if (ui.position.left > 0) {
-						console.log('hello');
-						$imgs.animate({'left': '0px'}, 200);
-					} else if (ui.position.left <  end) {
-						console.log('hello2');
-						$imgs.animate({'left': end}, 200);
-					}
-				}
-			});
+				cssEaseDuration: 2000,
+				velocityMultiplier: 2.5,
+				constrainTo: [0, 0, 0, (totalImgW - windowW + lastMarginRight) * -1]
+			})
+
 		}
+		function update() {
+			$.pep.unbind( $imgs );
+
+			windowW = $(window).width();
+
+			this.drag = drag;
+
+			drag();
+		}
+
+		setImgWidth();
 
 		return {
 			drag: drag,
-			imgsWidth: setImgWidth
+			update: update
 		}
 	}();
 
 
 	function blogIntInit() {			
-		blogInternal.imgsWidth();
 		blogInternal.drag();
-
 	};
 
 
@@ -72,17 +59,3 @@
 		blogIntInit();
 	})
 	
-
-
-			/*$imgs.draggable({
-				axis: 'x',
-				stop: function(e, ui) {
-					if (ui.position.left > 0) {
-						console.log('hello');
-						$imgs.animate({'left': '0px'}, 200);
-					} else if (ui.position.left <  end) {
-						console.log('hello2');
-						$imgs.animate({'left': end}, 200);
-					}
-				}
-			});*/
