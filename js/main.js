@@ -280,6 +280,10 @@ $(function() {
 				fullHeight(projectViewVar.$header);
 				colCompare.update();
 				break;
+
+			case 'bloginternal-view':
+				blogInternal.update();
+				break;
 		}
 	}
 
