@@ -2145,6 +2145,265 @@ body.light .page-header {
 }
 
 
+/* *********************************** SERVICES ******************************* */
+
+#servicesWrapper{
+   width: 100%;
+    height: 700px;
+    background-color: #fafafa;
+    font-family: "apercu";
+}
+
+#servicesWrapper h1{
+  position: relative;
+margin-top: 0px;
+font-size: 60px;
+font-family: "apercu";
+font-weight: 400;
+line-height: 65px;
+/*text-transform: uppercase;*/
+}
+
+
+#servicesWrapper h1:before{
+  content: '';
+    position: absolute;
+    bottom: 12px;
+    left: -50px;
+    width: 40px;
+    height: 4px;
+    background-color: #000000;
+}
+
+#servicesWrapperAnim{
+    width: 100%;
+    height: 700px;
+    padding-top: 100px;
+    overflow: hidden;
+}
+
+
+#servicesInfoSection {
+    width: 50%;
+    float: left;
+    position: absolute;
+    left: 0;
+    margin-top: 30px;
+}
+
+#servicesWrapperAnim h1{
+    margin: 0;
+    margin-left: 20%;
+}
+
+#servicesWrapperAnim p{
+    margin-left: 20%;
+    margin-right: 10%;
+    color:#797979;
+    font-size: 18px;
+    font-family: "apercu";
+}
+
+#servicesList {
+    width: 50%;
+    float: left;
+    position: absolute;
+    left: 50%;
+}
+
+#servicesList ul{
+    padding-left: 20%;
+}
+
+#servicesList ul li{
+    list-style-type: none;
+    padding-bottom: 20px;
+    padding-top: 25px;
+    cursor: pointer;
+    color:#010101;
+    font-size: 18px;
+    font-family: "apercu";
+}
+
+.currentService span{
+    border-bottom: 8px solid #000000;
+    padding-bottom: 20px;
+}
+
+#servicesContent {
+    width: 50%;
+    float: left;
+    position: relative;
+    left: 100%;
+    margin-top: 30px;
+}
+
+.serviceContent{
+    position: absolute;
+    top: 60px;
+    left:0;
+    display:none;
+}
+
+.serviceContent p{
+    margin-left: 5% !important;
+    margin-right: 10% !important;
+}
+
+.serviceContent  h1{
+    margin: 0;
+    margin-left: 5% !important;
+}
+
+#servicesSubtitle{
+    height: 50px;
+    position: absolute;
+    left: 5%;
+    top: 35px;
+    color:#010101;
+    font-size: 12px;
+    font-family: "apercu";
+}
+
+#servicesBar{
+    width: 40px;
+    height: 8px;
+    background-color: #000000;
+    float: left;
+    top: 4px;
+    position: relative;
+}
+
+#servicesSubtitle span{
+    margin-left: 5px;
+}
+#closeServices{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+    width: 24px;
+    height: 30px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    float: right;
+    right: 10%;
+    top: 20PX;
+}
+
+.line {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    position: absolute;
+    color:#000025;
+}
+
+#closeServices .line {
+  background: transparent;
+}
+
+#closeServices .line:nth-child(1), #closeServices .line:nth-child(3) {
+  width: 30px;
+  background-color: #000000;
+}
+
+#closeServices .line:nth-child(1) {
+  transform: rotate3d(0, 0, 1, 45deg);
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+}
+
+#closeServices .line:nth-child(3) {
+  transform: rotate3d(0, 0, 1, -45deg);
+  -webkit-transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.csLinkButton{
+    border: 2px solid #000000;
+    margin-top: 40px;
+    margin-left: 5%;
+    padding: 15px;
+    position: relative;
+    float: left;
+    font-family: "apercu";
+    font-size:14px;
+    color:#000000;
+}
+
+#serv-quoteWrapper{
+    background-color: #ffffff;
+    padding: 1px;
+}
+
+#serv-quote {
+  position: relative;
+  width: 80%;
+  margin: 100px auto;
+  color: #b5b9b8;
+  background-color: #ffffff;
+}
+#serv-quote h3,
+#serv-quote h4,
+#serv-quote h5 {
+  position: relative;
+  font-family: "apercu";
+  font-weight: 200;
+}
+#serv-quote h5 {
+  margin: 0 0 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#serv-quote h5:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 40px;
+  height: 2px;
+  margin-left: -20px;
+  background-color: #b5b9b8;
+}
+#serv-quote h3 {
+  margin: 0 0 30px 0;
+  font-size: 18px;
+  color: #797979;
+}
+
+#clientsWrapper{
+    padding-bottom: 100px;
+}
+    
+#clientsWrapper h1{
+    margin: 0;
+    padding-left: 5%;
+    padding-top: 100px;
+}
+
+#clientsLogos{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.logosList{
+    width: 100%;
+    left: 5%;
+    position: relative;
+    display: table;
+}
+
+.logosList img {
+    display: table-cell;
+    position: relative;
+    float: left;
+    width: 14%;
+    margin-right: 1%;
+}
+
 /* *********************************** FOOTER ******************************* */
 footer {
   display: none;
