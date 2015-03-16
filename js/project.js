@@ -3,8 +3,69 @@
 	***************************************************************************/
 
 	projectViewVar = {
-		$header: $('#header')
+		$header: $('#header'),
+		$headerTxt: $('#header-txt-cont'),
+		$hdrImgFront: $('#header-image-front'),
+		$hdrImgBack: $('.header-image-back')
 	}
+
+	parallaxBG = function() {
+		var	$flicker = $('.flicker');
+
+		function initParallax() {	
+			var $scene = $('#scene');
+			
+			$scene.parallax({
+			  calibrateX: false,
+			  calibrateY: false,
+			  invertX: false,
+			  invertY: false,
+			  limitX: false,
+			  limitY: false,
+			  scalarX: 4,
+			  scalarY: 4,
+			  frictionX: 0.2,
+			  frictionY: 0.8,
+			  originX: 0.5,
+			  originY:0.5
+			});
+			
+			$flicker.css('display', 'none');
+		}
+		
+
+		function flicker() {
+
+			var maxFlick = 6,
+				amount = Math.round(Math.random() * maxFlick),
+				delta = 1,
+				timer = Math.round((Math.random() + delta) * 100);
+
+			var doneFlicks = 0;
+
+			var flickInterval = setInterval(showHide, timer);
+
+			function showHide() {
+				timer = Math.round((Math.random() + delta) * 100)
+
+				$flicker.show();
+
+				var hide = setTimeout(function() {
+					$flicker.hide();
+					doneFlicks++
+				}, 20)
+
+				if (doneFlicks == amount) {
+					clearInterval(flickInterval);
+				}
+			}		
+		}
+
+		return {
+			flicker: flicker,
+			initParallax: initParallax
+		}
+	}();
 
 
 	secondNav = function() {
@@ -120,11 +181,17 @@
 
 	function projViewInit() {	
 		fullHeight(projectViewVar.$header);
+		parallaxBG.initParallax();
 		secondNav.clickHandler();
 	};
+
+	setInterval(parallaxBG.flicker, 3000)
 
 	$(window).scroll(function() {
 		scrollSpeed();
 	})
 
-	projViewInit();
+	$(function() {
+		projViewInit();
+	});
+	

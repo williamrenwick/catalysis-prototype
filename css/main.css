@@ -912,7 +912,7 @@ body.light .page-header {
 
 #header {
   width: 100%;
-  background-size: cover;
+  overflow: hidden;
 }
 #header:before {
   content: '';
@@ -925,12 +925,36 @@ body.light .page-header {
   top: 50%;
   left: 50%;
   width: 600px;
-  height: 460px;
-  margin-top: -230px;
+  height: 560px;
+  margin-top: -280px;
   margin-left: -300px;
   font-family: "apercu";
   color: #ffffff;
   text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.05);
+}
+#scene {
+  width: 110%;
+  height: 110%;
+  padding: 0;
+  margin: 0;
+}
+.layer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.para-image,
+.para-background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;  
+  background-position: center;
+  background-size: cover;
+}
+.flicker {
+  display: none;
 }
 #header-txt-cont h1,
 #header-txt-cont h5,
@@ -1254,6 +1278,7 @@ body.light .page-header {
 #proj-quote {
   position: relative;
   width: 80%;
+  max-width: 960px;
   margin: 100px auto;
   color: #b5b9b8;
 }
